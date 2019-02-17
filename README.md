@@ -1,0 +1,2 @@
+# InforVis
+Information visualization project
