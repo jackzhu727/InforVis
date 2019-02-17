@@ -1,0 +1,371 @@
+{
+    "label" : "Total Mathematicians in History",
+    "ten":0,
+    "values": 104947,
+    "children":[
+        {
+        "label": "Foundations",
+        "values": 2793,
+        "ten":847,
+        "children":[
+            {
+                "label":"01 History and biography",
+                "ten":78,
+                "values":446
+            },
+            {
+                "label":"03 Mathematical logic and foundations",
+                "ten":769,
+                "values":2347
+            }
+        ]
+    },
+        {
+        "label": "Arithmetic",
+        "children":[],
+        "ten":0,
+        "values":0
+        },
+
+        {
+        "label": "Algebra",
+        "ten":5803,
+        "values": 12010,
+        "children":[
+            {
+                "label":"06 Order, lattices, ordered algebraic structures",
+                "ten":94,
+                "values":298
+            },
+            {
+                "label":"08 General algebraic systems",
+                "ten":81,
+                "values":272
+            },
+            {
+                "label":"11 values theory",
+                "ten":1576,
+                "values":3102
+            },
+            {
+                "label":"12 Field theory and polynomials",
+                "ten":68,
+                "values":189
+            },
+            {
+                "label":"13 Commutative rings and algebras",
+                "ten":383,
+                "values":721
+            },
+            {
+                "label":"14 Algebraic geometry",
+                "ten":1329,
+                "values":2404
+            },
+            {
+                "label":"15 Linear and multilinear algebra; matrix theory",
+                "ten":213,
+                "values":471
+            },
+            {
+                "label":"16 Associative rings and algebras",
+                "ten":521,
+                "values":1144
+            },
+            {
+                "label":"17 Nonassociative rings and algebras",
+                "ten":208,
+                "values":260
+            },
+            {
+                "label":"18 Category theory, homological algebra",
+                "ten":220,
+                "values":475
+            },
+            {
+                "label":"20 Group theory and generalizations",
+                "ten":909,
+                "values":2453
+            },
+            {
+                "label":"22 Topological groups, Lie groups",
+                "ten":201,
+                "values":455
+            } 
+            ]
+        },
+
+        {
+            "label":"Analysis",
+            "ten":6498,
+            "values": 15919,
+            "children":[
+                {
+                    "label":"26 Real functions",
+                    "ten":80,
+                    "values":452
+                },
+                {
+                    "label":"28 Measure and integration",
+                    "ten":80,
+                    "values":238
+                },
+                {
+                    "label":"30 Functions of a complex variable",
+                    "ten":286,
+                    "values":949
+                },
+                {
+                    "label":"31 Potential theory",
+                    "ten":37,
+                    "values":135
+                },
+                {
+                    "label":"32 Several complex variables and analytic spaces",
+                    "ten":221,
+                    "values":558
+                },
+                {
+                    "label":"33 Special functions",
+                    "ten":70,
+                    "values":195
+                },
+                {
+                    "label":"34 Ordinary differential equations",
+                    "ten":389,
+                    "values":1419
+                },
+                {
+                    "label":"35 Partial differential equations",
+                    "ten":2034,
+                    "values":4129
+                },
+                {
+                    "label":"37 Dynamical systems and ergodic theory",
+                    "ten":922,
+                    "values":1771
+                },
+                {
+                    "label":"39 Finite differences and functional equations",
+                    "ten":75,
+                    "values":165
+                },
+                {
+                    "label":"40 Sequences, series, summability",
+                    "ten":30,
+                    "values":174
+                },
+                {
+                    "label":"41 Approximations and expansions",
+                    "ten":172,
+                    "values":619
+                },
+                {
+                    "label":"42 Fourier analysis",
+                    "ten":295,
+                    "values":602
+                },
+                {
+                    "label":"43 Abstract harmonic analysis",
+                    "ten":100,
+                    "values":220
+                },
+                {
+                    "label":"44 Integral transforms, operational calculus",
+                    "ten":24,
+                    "values":70
+                },
+                {
+                    "label":"45 Integral equations",
+                    "ten":44,
+                    "values":162
+                },
+                {
+                    "label":"46 Functional analysis",
+                    "ten":797,
+                    "values":2663
+                },
+                {
+                    "label":"47 Operator theory",
+                    "ten":455,
+                    "values":1071
+                },
+                {
+                    "label":"49 Calculus of variations and optimal control",
+                    "ten":387,
+                    "values":779
+                }
+            ]
+        },
+
+        {
+            "label":"Combinatorics",
+            "ten":15,
+            "values": 81,
+            "children":[
+                {
+                    "label":"05 Combinatorics",
+                    "ten":15,
+                    "values":81
+                }
+            ]
+        },
+
+        {
+            "label":"Geometry and topology",
+            "ten":2866,
+            "values": 7030,
+            "children":[
+                {
+                    "label":"19 K-theory",
+                    "ten":0,
+                    "values":168
+                },
+                {
+                    "label":"51 Geometry",
+                    "ten":254,
+                    "values":940
+                },
+                {
+                    "label":"52 Convex and discrete geometry",
+                    "ten":226,
+                    "values":579
+                },
+                {
+                    "label":"53 Differential geometry",
+                    "ten":1035,
+                    "values":2248
+                },
+                {
+                    "label":"54 General topology",
+                    "ten":178,
+                    "values":793
+                },
+                {
+                    "label":"55 Algebraic topology",
+                    "ten":470,
+                    "values":940
+                },
+                {
+                    "label":"57 Manifolds and cell complexes",
+                    "ten":489,
+                    "values":875
+                },
+                {
+                    "label":"58 Global analysis, analysis on manifolds",
+                    "ten":214,
+                    "values":487
+                }
+            ]
+        },
+
+        {
+            "label":"Applied mathematics",
+            "ten":37379,
+            "values": 67114,
+            "children":[
+                {
+                    "label":"60 Probability theory and stochastic processes",
+                    "ten":2139,
+                    "values":4660
+                },
+                {
+                    "label":"62 Statistics",
+                    "ten":4178,
+                    "values":9499
+                },
+                {
+                    "label":"65 Numerical analysis",
+                    "ten":2305,
+                    "values":4852
+                },
+                {
+                    "label":"68 Computer science",
+                    "ten":8840,
+                    "values":19386
+                },
+                {
+                    "label":"70 Mechanics of particles and systems",
+                    "ten":135,
+                    "values":676
+                },
+                {
+                    "label":"74 Mechanics of deformable solids",
+                    "ten":378,
+                    "values":1193
+                },
+                {
+                    "label":"76 Fluid mechanics",
+                    "ten":767,
+                    "values":2397
+                },
+                {
+                    "label":"78 Optics, electromagnetic theory",
+                    "ten":99,
+                    "values":800
+                },
+                {
+                    "label":"80 Classical thermodynamics, heat transfer",
+                    "ten":30,
+                    "values":214
+                },
+                {
+                    "label":"81 Quantum Theory",
+                    "ten":490,
+                    "values":895
+                },
+                {
+                    "label":"82 Statistical mechanics, structure of matter",
+                    "ten":216,
+                    "values":1003
+                },
+                {
+                    "label":"83 Relativity and gravitational theory",
+                    "ten":273,
+                    "values":998
+                },
+                {
+                    "label":"85 Astronomy and astrophysics",
+                    "ten":250,
+                    "values":1487
+                },
+                {
+                    "label":"86 Geophysics",
+                    "ten":94,
+                    "values":402
+                },
+                {
+                    "label":"90 Operations research, mathematical programming",
+                    "ten":1502,
+                    "values":3451
+                },
+                {
+                    "label":"91 Game theory, economics, social and behavioral sciences",
+                    "ten":2000,
+                    "values":7451
+                },
+                {
+                    "label":"92 Biology and other natural sciences",
+                    "ten":1070,
+                    "values":2376
+                },
+                {
+                    "label":"93 Systems theory; control",
+                    "ten":741,
+                    "values":2084
+                },
+                {
+                    "label":"94 Information and communication, circuits",
+                    "ten":1287,
+                    "values":3008
+                },
+                {
+                    "label":"97 Mathematics education",
+                    "ten":585,
+                    "values":1897
+                }
+            ]
+        }
+
+    ]
+}

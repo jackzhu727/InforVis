@@ -1,0 +1,378 @@
+	<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+  background: #fcfcfa;
+}
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3px;
+}
+.fill {
+  fill: #fff;
+}
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+.land {
+  fill: #bbb;
+}
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+.points circle {
+  fill: #fff;
+  stroke: red;
+  stroke-width: 2px;
+}
+.points text {
+  font: 11px sans-serif;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+.route {
+  fill: none;
+  stroke: blue;
+  stroke-opacity:0.4;
+  /*stroke-width: 3px;*/
+}
+</style>
+<body>
+    <label for="Age" 
+         style="display: inline-block; width: 240px; text-align: right">
+         Years: <span id="Age-value">…</span>
+  </label>
+  <input type="range" min="1800" max="2000" step = "50" id="Age">
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script>
+var width = 960,
+    height = 570;
+var place = {Andorra:  [1.601554, 42.546245],
+UnitedArabEmirates:  [53.847818, 23.424076],
+Afghanistan:  [67.709953, 33.93911],
+//AntiguaandBarbuda:  [-61.796428, 17.060816],
+Anguilla:  [-63.068615, 18.220554],
+Albania:  [20.168331, 41.153332],
+Armenia:  [45.038189, 40.069099],
+//NetherlandsAntilles:  [-69.060087, 12.226079],
+Angola:  [17.873887, -11.202692],
+Antarctica:  [-0.071389, -75.250973],
+Argentina:  [-63.616672, -38.416097],
+AmericanSamoa:  [-170.132217, -14.270972],
+Austria:  [14.550072, 47.516231],
+Australia:  [133.775136, -25.274398],
+//Aruba:  [-69.968338, 12.52111],
+Azerbaijan:  [47.576927, 40.143105],
+BosniaandHerzegovina:  [17.679076, 43.915886],
+Barbados:  [-59.543198, 13.193887],
+Bangladesh:  [90.356331, 23.684994],
+Belgium:  [4.469936, 50.503887],
+BurkinaFaso:  [-1.561593, 12.238333],
+Bulgaria:  [25.48583, 42.733883],
+Bahrain:  [50.637772, 25.930414],
+Burundi:  [29.918886, -3.373056],
+Benin:  [2.315834, 9.30769],
+Bermuda:  [-64.75737, 32.321384],
+Brunei:  [114.727669, 4.535277],
+Bolivia:  [-63.588653, -16.290154],
+Brazil:  [-51.92528, -14.235004],
+Bahamas:  [-77.39628, 25.03428],
+Bhutan:  [90.433601, 27.514162],
+BouvetIsland:  [3.413194, -54.423199],
+Botswana:  [24.684866, -22.328474],
+Belarus:  [27.953389, 53.709807],
+//Belize:  [-88.49765, 17.189877],
+Canada:  [-106.346771, 56.130366],
+CentralAfricanRepublic:  [20.939444, 6.611111],
+Switzerland:  [8.227512, 46.818188],
+CookIslands:  [-159.777671, -21.236736],
+Chile:  [-71.542969, -35.675147],
+Cameroon:  [12.354722, 7.369722],
+China:  [104.195397, 35.86166],
+Colombia:  [-74.297333, 4.570868],
+CostaRica:  [-83.753428, 9.748917],
+Cuba:  [-77.781167, 21.521757],
+CapeVerde:  [-24.013197, 16.002082],
+ChristmasIsland:  [105.690449, -10.447525],
+Cyprus:  [33.429859, 35.126413],
+CzechRepublic:  [15.472962, 49.817492],
+Germany:  [10.451526, 51.165691],
+Djibouti:  [42.590275, 11.825138],
+Denmark:  [9.501785, 56.26392],
+//Dominica:  [-61.370976, 15.414999],
+DominicanRepublic:  [-70.162651, 18.735693],
+Algeria:  [1.659626, 28.033886],
+Ecuador:  [-78.183406, -1.831239],
+Estonia:  [25.013607, 58.595272],
+Egypt:  [30.802498, 26.820553],
+WesternSahara:  [-12.885834, 24.215527],
+Eritrea:  [39.782334, 15.179384],
+Spain:  [-3.74922, 40.463667],
+Ethiopia:  [40.489673, 9.145],
+Finland:  [25.748151, 61.92411],
+Fiji:  [179.414413, -16.578193],
+Micronesia:  [150.550812, 7.425554],
+FaroeIslands:  [-6.911806, 61.892635],
+France:  [2.213749, 46.227638],
+Gabon:  [11.609444, -0.803689],
+UnitedKingdom:  [-3.435973, 55.378051],
+//Grenada:  [-61.604171, 12.262776],
+Georgia:  [43.356892, 42.315407],
+//FrenchGuiana:  [-53.125782, 3.933889],
+Guernsey:  [-2.585278, 49.465691],
+Ghana:  [-1.023194, 7.946527],
+Gibraltar:  [-5.345374, 36.137741],
+Greenland:  [-42.604303, 71.706936],
+Gambia:  [-15.310139, 13.443182],
+Guinea:  [-9.696645, 9.945587],
+//Guadeloupe:  [-62.067641, 16.995971],
+EquatorialGuinea:  [10.267895, 1.650801],
+Greece:  [21.824312, 39.074208],
+Guatemala:  [-90.230759, 15.783471],
+Guam:  [144.793731, 13.444304],
+//Guyana:  [-58.93018, 4.860416],
+GazaStrip:  [34.308825, 31.354676],
+HongKong:  [114.109497, 22.396428],
+HeardIslandandMcDonaldIslands:  [73.504158, -53.08181],
+Honduras:  [-86.241905, 15.199999],
+Croatia:  [15.2, 45.1],
+Haiti:  [-72.285215, 18.971187],
+Hungary:  [19.503304, 47.162494],
+Indonesia:  [113.921327, -0.789275],
+Ireland:  [-8.24389, 53.41291],
+Israel:  [34.851612, 31.046051],
+IsleofMan:  [-4.548056, 54.236107],
+India:  [78.96288, 20.593684],
+BritishIndianOceanTerritory:  [71.876519, -6.343194],
+Iraq:  [43.679291, 33.223191],
+Iran:  [53.688046, 32.427908],
+Iceland:  [-19.020835, 64.963051],
+Italy:  [12.56738, 41.87194],
+Jersey:  [-2.13125, 49.214439],
+Jamaica:  [-77.297508, 18.109581],
+Jordan:  [36.238414, 30.585164],
+Japan:  [138.252924, 36.204824],
+Kenya:  [37.906193, -0.023559],
+Kyrgyzstan:  [74.766098, 41.20438],
+Cambodia:  [104.990963, 12.565679],
+Kiribati:  [-168.734039, -3.370417],
+Comoros:  [43.872219, -11.875001],
+SaintKittsandNevis:  [-62.782998, 17.357822],
+NorthKorea:  [127.510093, 40.339852],
+SouthKorea:  [127.766922, 35.907757],
+Kuwait:  [47.481766, 29.31166],
+CaymanIslands:  [-80.566956, 19.513469],
+Kazakhstan:  [66.923684, 48.019573],
+Laos:  [102.495496, 19.85627],
+Lebanon:  [35.862285, 33.854721],
+//SaintLucia:  [-60.978893, 13.909444],
+Liechtenstein:  [9.555373, 47.166],
+SriLanka:  [80.771797, 7.873054],
+Liberia:  [-9.429499, 6.428055],
+Lesotho:  [28.233608, -29.609988],
+Lithuania:  [23.881275, 55.169438],
+Luxembourg:  [6.129583, 49.815273],
+Latvia:  [24.603189, 56.879635],
+Libya:  [17.228331, 26.3351],
+Morocco:  [-7.09262, 31.791702],
+Monaco:  [7.412841, 43.750298],
+Moldova:  [28.369885, 47.411631],
+Montenegro:  [19.37439, 42.708678],
+Madagascar:  [46.869107, -18.766947],
+MarshallIslands:  [171.184478, 7.131474],
+Mali:  [-3.996166, 17.570692],
+Mongolia:  [103.846656, 46.862496],
+Macau:  [113.543873, 22.198745],
+NorthernMarianaIslands:  [145.38469, 17.33083],
+//Martinique:  [-61.024174, 14.641528],
+Mauritania:  [-10.940835, 21.00789],
+//Montserrat:  [-62.187366, 16.742498],
+Malta:  [14.375416, 35.937496],
+Mauritius:  [57.552152, -20.348404],
+Maldives:  [73.22068, 3.202778],
+Malawi:  [34.301525, -13.254308],
+Mexico:  [-102.552784, 23.634501],
+Malaysia:  [101.975766, 4.210484],
+Mozambique:  [35.529562, -18.665695],
+Namibia:  [18.49041, -22.95764],
+NewCaledonia:  [165.618042, -20.904305],
+Niger:  [8.081666, 17.607789],
+NorfolkIsland:  [167.954712, -29.040835],
+Nigeria:  [8.675277, 9.081999],
+Nicaragua:  [-85.207229, 12.865416],
+Netherlands:  [5.291266, 52.132633],
+Norway:  [8.468946, 60.472024],
+Nepal:  [84.124008, 28.394857],
+Nauru:  [166.931503, -0.522778],
+Niue:  [-169.867233, -19.054445],
+NewZealand:  [174.885971, -40.900557],
+Oman:  [55.923255, 21.512583],
+Panama:  [-80.782127, 8.537981],
+Peru:  [-75.015152, -9.189967],
+FrenchPolynesia:  [-149.406843, -17.679742],
+PapuaNewGuinea:  [143.95555, -6.314993],
+Philippines:  [121.774017, 12.879721],
+Pakistan:  [69.345116, 30.375321],
+Poland:  [19.145136, 51.919438],
+SaintPierreandMiquelon:  [-56.27111, 46.941936],
+PitcairnIslands:  [-127.439308, -24.703615],
+PuertoRico:  [-66.590149, 18.220833],
+PalestinianTerritories:  [35.233154, 31.952162],
+Portugal:  [-8.224454, 39.399872],
+Palau:  [134.58252, 7.51498],
+Paraguay:  [-58.443832, -23.442503],
+Qatar:  [51.183884, 25.354826],
+Romania:  [24.96676, 45.943161],
+Serbia:  [21.005859, 44.016521],
+Russia:  [105.318756, 61.52401],
+Rwanda:  [29.873888, -1.940278],
+SaudiArabia:  [45.079162, 23.885942],
+SolomonIslands:  [160.156194, -9.64571],
+Seychelles:  [55.491977, -4.679574],
+Sudan:  [30.217636, 12.862807],
+Sweden:  [18.643501, 60.128161],
+Singapore:  [103.819836, 1.352083],
+SaintHelena:  [-10.030696, -24.143474],
+Slovenia:  [14.995463, 46.151241],
+SvalbardandJanMayen:  [23.670272, 77.553604],
+Slovakia:  [19.699024, 48.669026],
+SierraLeone:  [-11.779889, 8.460555],
+SanMarino:  [12.457777, 43.94236],
+Senegal:  [-14.452362, 14.497401],
+Somalia:  [46.199616, 5.152149],
+Suriname:  [-56.027783, 3.919305],
+ElSalvador:  [-88.89653, 13.794185],
+Syria:  [38.996815, 34.802075],
+Swaziland:  [31.465866, -26.522503],
+TurksandCaicosIslands:  [-71.797928, 21.694025],
+Chad:  [18.732207, 15.454166],
+FrenchSouthernTerritories:  [69.348557, -49.280366],
+Togo:  [0.824782, 8.619543],
+Thailand:  [100.992541, 15.870032],
+Tajikistan:  [71.276093, 38.861034],
+Tokelau:  [-171.855881, -8.967363],
+Turkmenistan:  [59.556278, 38.969719],
+Tunisia:  [9.537499, 33.886917],
+Tonga:  [-175.198242, -21.178986],
+Turkey:  [35.243322, 38.963745],
+TrinidadandTobago:  [-61.222503, 10.691803],
+Tuvalu:  [177.64933, -7.109535],
+Taiwan:  [120.960515, 23.69781],
+Tanzania:  [34.888822, -6.369028],
+Ukraine:  [31.16558, 48.379433],
+Uganda:  [32.290275, 1.373333],
+UnitedStates:  [-95.712891, 37.09024],
+Uruguay:  [-55.765835, -32.522779],
+Uzbekistan:  [64.585262, 41.377491],
+VaticanCity:  [12.453389, 41.902916],
+SaintVincentandtheGrenadines:  [-61.287228, 12.984305],
+Venezuela:  [-66.58973, 6.42375],
+BritishVirginIslands:  [-64.639968, 18.420695],
+Vietnam:  [108.277199, 14.058324],
+Vanuatu:  [166.959158, -15.376706],
+WallisandFutuna:  [-177.156097, -13.768752],
+Samoa:  [-172.104629, -13.759029],
+Kosovo:  [20.902977, 42.602636],
+Yemen:  [48.516388, 15.552727],
+Mayotte:  [45.166244, -12.8275],
+SouthAfrica:  [22.937506, -30.559482],
+Zambia:  [27.849332, -13.133897],
+Zimbabwe:  [29.154857, -19.015438]
+};
+
+var routeAll = {"2000": [{type: "LineString", coordinates: [place.UnitedStates, place.UnitedStates], number: 0.39290462528864323}, {type: "LineString", coordinates: [place.UnitedStates, place.Canada], number: 0.012210482121615003}, {type: "LineString", coordinates: [place.Canada, place.Canada], number: 0.015411797634875097}, {type: "LineString", coordinates: [place.Canada, place.UnitedStates], number: 0.007154852704499335}, {type: "LineString", coordinates: [place.Germany, place.Germany], number: 0.0897942761178364}, {type: "LineString", coordinates: [place.UnitedKingdom, place.UnitedKingdom], number: 0.04135469876145826}, {type: "LineString", coordinates: [place.Sweden, place.Sweden], number: 0.00888671191659086}, {type: "LineString", coordinates: [place.UnitedStates, place.Sweden], number: 0.0011895598628507453}, {type: "LineString", coordinates: [place.Germany, place.Brazil], number: 0.0006647540410048283}, {type: "LineString", coordinates: [place.Ukraine, place.Ukraine], number: 0.002624029109229585}, {type: "LineString", coordinates: [place.UnitedStates, place.Taiwan], number: 0.0026940032188090407}, {type: "LineString", coordinates: [place.Germany, place.UnitedStates], number: 0.008379399622139808}, {type: "LineString", coordinates: [place.Finland, place.Finland], number: 0.005388006437618081}, {type: "LineString", coordinates: [place.Canada, place.Morocco], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.France, place.France], number: 0.03759359037156252}, {type: "LineString", coordinates: [place.Hungary, place.UnitedStates], number: 0.001067105171086698}, {type: "LineString", coordinates: [place.India, place.India], number: 0.008956686026170318}, {type: "LineString", coordinates: [place.Switzerland, place.Switzerland], number: 0.007522216779791477}, {type: "LineString", coordinates: [place.UnitedStates, place.UnitedKingdom], number: 0.007469736197606885}, {type: "LineString", coordinates: [place.Austria, place.Austria], number: 0.007802113218109299}, {type: "LineString", coordinates: [place.Brazil, place.Brazil], number: 0.008082009656427122}, {type: "LineString", coordinates: [place.Canada, place.Australia], number: 0.0005073122944510532}, {type: "LineString", coordinates: [place.Germany, place.Belgium], number: 0.00033237702050241413}, {type: "LineString", coordinates: [place.UnitedKingdom, place.UnitedStates], number: 0.013749912532363026}, {type: "LineString", coordinates: [place.Russia, place.UnitedStates], number: 0.0084318802043244}, {type: "LineString", coordinates: [place.Germany, place.UnitedKingdom], number: 0.003131341403680638}, {type: "LineString", coordinates: [place.UnitedStates, place.Iran], number: 0.0014169757189839759}, {type: "LineString", coordinates: [place.Germany, place.France], number: 0.00143446924637884}, {type: "LineString", coordinates: [place.Serbia, place.UnitedKingdom], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.UnitedStates, place.Italy], number: 0.002624029109229585}, {type: "LineString", coordinates: [place.Poland, place.Poland], number: 0.007959554964663074}, {type: "LineString", coordinates: [place.UnitedStates, place.SouthKorea], number: 0.005195577636274578}, {type: "LineString", coordinates: [place.Spain, place.Spain], number: 0.015674200545798055}, {type: "LineString", coordinates: [place.Netherlands, place.Netherlands], number: 0.018473164928976278}, {type: "LineString", coordinates: [place.Belgium, place.Belgium], number: 0.00946399832062137}, {type: "LineString", coordinates: [place.UnitedStates, place.China], number: 0.0034112378419984607}, {type: "LineString", coordinates: [place.Switzerland, place.Germany], number: 0.002816457910573088}, {type: "LineString", coordinates: [place.Russia, place.Russia], number: 0.013120145546147925}, {type: "LineString", coordinates: [place.Portugal, place.Portugal], number: 0.0018193268490658456}, {type: "LineString", coordinates: [place.Italy, place.Italy], number: 0.007837100272899028}, {type: "LineString", coordinates: [place.UnitedStates, place.Turkey], number: 0.0019417815408298929}, {type: "LineString", coordinates: [place.UnitedStates, place.Singapore], number: 0.0025365614722552654}, {type: "LineString", coordinates: [place.UnitedStates, place.India], number: 0.0026940032188090407}, {type: "LineString", coordinates: [place.UnitedStates, place.France], number: 0.003463718424183052}, {type: "LineString", coordinates: [place.Switzerland, place.France], number: 0.0011195857532712897}, {type: "LineString", coordinates: [place.Russia, place.France], number: 0.0013470016094045204}, {type: "LineString", coordinates: [place.Australia, place.UnitedStates], number: 0.002116716814778532}, {type: "LineString", coordinates: [place.Netherlands, place.UnitedStates], number: 0.003323770205024141}, {type: "LineString", coordinates: [place.Ukraine, place.UnitedStates], number: 0.0004548317122664614}, {type: "LineString", coordinates: [place.Israel, place.UnitedStates], number: 0.004163459519977608}, {type: "LineString", coordinates: [place.Switzerland, place.UnitedStates], number: 0.0020642362325939403}, {type: "LineString", coordinates: [place.Romania, place.UnitedStates], number: 0.001067105171086698}, {type: "LineString", coordinates: [place.CzechRepublic, place.UnitedStates], number: 0.00071723462318942}, {type: "LineString", coordinates: [place.France, place.UnitedStates], number: 0.004408368903505703}, {type: "LineString", coordinates: [place.China, place.UnitedStates], number: 0.0006472605136099643}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Germany], number: 0.0018543139038555735}, {type: "LineString", coordinates: [place.Netherlands, place.Italy], number: 0.0005597928766356449}, {type: "LineString", coordinates: [place.India, place.UnitedStates], number: 0.002659016164019313}, {type: "LineString", coordinates: [place.SouthAfrica, place.UnitedStates], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Poland, place.UnitedStates], number: 0.001924288013435029}, {type: "LineString", coordinates: [place.Australia, place.UnitedKingdom], number: 0.0005772864040305087}, {type: "LineString", coordinates: [place.Belarus, place.UnitedStates], number: 0.00038485760268700583}, {type: "LineString", coordinates: [place.Israel, place.Israel], number: 0.006490098663494507}, {type: "LineString", coordinates: [place.Sweden, place.UnitedStates], number: 0.0012245469176404731}, {type: "LineString", coordinates: [place.Germany, place.Netherlands], number: 0.0008047022601637394}, {type: "LineString", coordinates: [place.Belgium, place.UnitedStates], number: 0.0006822475683996921}, {type: "LineString", coordinates: [place.Israel, place.France], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Canada], number: 0.0021866909243579875}, {type: "LineString", coordinates: [place.Austria, place.Germany], number: 0.0010321181162969702}, {type: "LineString", coordinates: [place.Slovenia, place.Slovenia], number: 0.001924288013435029}, {type: "LineString", coordinates: [place.UnitedStates, place.Slovenia], number: 0.0003673640752921419}, {type: "LineString", coordinates: [place.Germany, place.Denmark], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.UnitedStates, place.Mexico], number: 0.0017143656846966622}, {type: "LineString", coordinates: [place.UnitedStates, place.Australia], number: 0.0020642362325939403}, {type: "LineString", coordinates: [place.Belgium, place.Morocco], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Pakistan], number: 0.00027989643831782243}, {type: "LineString", coordinates: [place.UnitedStates, place.Greece], number: 0.001242040445035337}, {type: "LineString", coordinates: [place.UnitedStates, place.Finland], number: 0.000349870547897278}, {type: "LineString", coordinates: [place.Canada, place.Iran], number: 0.0013470016094045204}, {type: "LineString", coordinates: [place.Lithuania, place.Lithuania], number: 0.0009446504793226506}, {type: "LineString", coordinates: [place.Denmark, place.UnitedStates], number: 0.0008571828423483311}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Portugal], number: 0.0008746763697431951}, {type: "LineString", coordinates: [place.UnitedStates, place.Germany], number: 0.0049506682527464835}, {type: "LineString", coordinates: [place.UnitedStates, place.Netherlands], number: 0.0012945210272199287}, {type: "LineString", coordinates: [place.UnitedStates, place.Brazil], number: 0.006787488629207194}, {type: "LineString", coordinates: [place.Germany, place.Switzerland], number: 0.002624029109229585}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Denmark], number: 0.00043733818487159753}, {type: "LineString", coordinates: [place.Germany, place.Canada], number: 0.0006822475683996921}, {type: "LineString", coordinates: [place.UnitedStates, place.Israel], number: 0.003533692533762508}, {type: "LineString", coordinates: [place.UnitedStates, place.HongKong], number: 0.00318382198586523}, {type: "LineString", coordinates: [place.Russia, place.UnitedKingdom], number: 0.0015044433559582954}, {type: "LineString", coordinates: [place.Japan, place.UnitedStates], number: 0.0005772864040305087}, {type: "LineString", coordinates: [place.Australia, place.Australia], number: 0.005597928766356448}, {type: "LineString", coordinates: [place.Germany, place.Austria], number: 0.0011020922258764257}, {type: "LineString", coordinates: [place.UnitedStates, place.Spain], number: 0.0014169757189839759}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Australia], number: 0.0018018333216709818}, {type: "LineString", coordinates: [place.UnitedKingdom, place.France], number: 0.0006472605136099643}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Nigeria], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.Denmark, place.Denmark], number: 0.002431600307886082}, {type: "LineString", coordinates: [place.Canada, place.UnitedKingdom], number: 0.0010146245889021063}, {type: "LineString", coordinates: [place.UnitedStates, place.Japan], number: 0.0007697152053740117}, {type: "LineString", coordinates: [place.UnitedStates, place.Norway], number: 0.0005772864040305087}, {type: "LineString", coordinates: [place.Romania, place.Romania], number: 0.005143097054089987}, {type: "LineString", coordinates: [place.Morocco, place.Morocco], number: 0.000349870547897278}, {type: "LineString", coordinates: [place.Hungary, place.Hungary], number: 0.0018718074312504373}, {type: "LineString", coordinates: [place.UnitedKingdom, place.SouthAfrica], number: 0.0008047022601637394}, {type: "LineString", coordinates: [place.Australia, place.Canada], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.France, place.Morocco], number: 0.000349870547897278}, {type: "LineString", coordinates: [place.Slovakia, place.CzechRepublic], number: 0.0002274158561332307}, {type: "LineString", coordinates: [place.Germany, place.Australia], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Netherlands, place.France], number: 0.0002274158561332307}, {type: "LineString", coordinates: [place.UnitedStates, place.Ireland], number: 0.0013470016094045204}, {type: "LineString", coordinates: [place.Belgium, place.Switzerland], number: 0.0009446504793226506}, {type: "LineString", coordinates: [place.UnitedStates, place.Switzerland], number: 0.0028514449653628156}, {type: "LineString", coordinates: [place.Austria, place.Switzerland], number: 0.0003148834931075502}, {type: "LineString", coordinates: [place.Russia, place.Turkey], number: 0.0005073122944510532}, {type: "LineString", coordinates: [place.Russia, place.Hungary], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.UnitedStates, place.Portugal], number: 0.0015219368833531593}, {type: "LineString", coordinates: [place.Finland, place.UnitedStates], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Italy, place.UnitedKingdom], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.UnitedStates, place.Philippines], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.Russia, place.Sweden], number: 0.0004023511300818697}, {type: "LineString", coordinates: [place.Poland, place.France], number: 0.0002274158561332307}, {type: "LineString", coordinates: [place.UnitedStates, place.Cyprus], number: 0.0002274158561332307}, {type: "LineString", coordinates: [place.Argentina, place.Argentina], number: 0.002991393184521727}, {type: "LineString", coordinates: [place.France, place.Germany], number: 0.0009971310615072423}, {type: "LineString", coordinates: [place.Argentina, place.UnitedStates], number: 0.0006122734588202366}, {type: "LineString", coordinates: [place.UnitedStates, place.Belgium], number: 0.0005947799314253726}, {type: "LineString", coordinates: [place.Ireland, place.Ireland], number: 0.0006297669862151004}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Iran], number: 0.0026940032188090407}, {type: "LineString", coordinates: [place.Russia, place.Germany], number: 0.0008571828423483311}, {type: "LineString", coordinates: [place.Slovakia, place.Slovakia], number: 0.0008047022601637394}, {type: "LineString", coordinates: [place.France, place.Switzerland], number: 0.0011020922258764257}, {type: "LineString", coordinates: [place.Russia, place.Canada], number: 0.00043733818487159753}, {type: "LineString", coordinates: [place.Canada, place.France], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.Italy, place.France], number: 0.0006122734588202366}, {type: "LineString", coordinates: [place.UnitedStates, place.Denmark], number: 0.0010146245889021063}, {type: "LineString", coordinates: [place.Greece, place.Greece], number: 0.001242040445035337}, {type: "LineString", coordinates: [place.Austria, place.UnitedStates], number: 0.0006472605136099643}, {type: "LineString", coordinates: [place.UnitedStates, place.Venezuela], number: 0.0002973899657126863}, {type: "LineString", coordinates: [place.Poland, place.Netherlands], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.Russia, place.Ukraine], number: 0.0007347281505842838}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Mexico], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.UnitedStates, place.Chile], number: 0.0009446504793226506}, {type: "LineString", coordinates: [place.Japan, place.Japan], number: 0.003481211951577916}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Brazil], number: 0.0018018333216709818}, {type: "LineString", coordinates: [place.Russia, place.Italy], number: 0.0004023511300818697}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Switzerland], number: 0.0007872087327688755}, {type: "LineString", coordinates: [place.France, place.Portugal], number: 0.0004198446574767336}, {type: "LineString", coordinates: [place.Canada, place.HongKong], number: 0.0004023511300818697}, {type: "LineString", coordinates: [place.UnitedStates, place.NewZealand], number: 0.0006122734588202366}, {type: "LineString", coordinates: [place.France, place.Brazil], number: 0.0004548317122664614}, {type: "LineString", coordinates: [place.Italy, place.Germany], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.HongKong, place.UnitedStates], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Italy, place.UnitedStates], number: 0.001067105171086698}, {type: "LineString", coordinates: [place.Mexico, place.Mexico], number: 0.0013470016094045204}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Netherlands], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Russia, place.Israel], number: 0.0003148834931075502}, {type: "LineString", coordinates: [place.China, place.China], number: 0.005632915821146176}, {type: "LineString", coordinates: [place.Poland, place.Canada], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.France, place.Canada], number: 0.0011545728080610174}, {type: "LineString", coordinates: [place.SouthAfrica, place.SouthAfrica], number: 0.001049611643691834}, {type: "LineString", coordinates: [place.Norway, place.Norway], number: 0.0016094045203274788}, {type: "LineString", coordinates: [place.Germany, place.Sweden], number: 0.0004198446574767336}, {type: "LineString", coordinates: [place.Switzerland, place.Canada], number: 0.0002973899657126863}, {type: "LineString", coordinates: [place.Germany, place.NewZealand], number: 0.000524805821845917}, {type: "LineString", coordinates: [place.Croatia, place.Croatia], number: 0.0006647540410048283}, {type: "LineString", coordinates: [place.Switzerland, place.SouthAfrica], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.Iran, place.Iran], number: 0.0027639773283884964}, {type: "LineString", coordinates: [place.Brazil, place.Portugal], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Finland], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.Israel, place.UnitedKingdom], number: 0.0003148834931075502}, {type: "LineString", coordinates: [place.Netherlands, place.UnitedKingdom], number: 0.0015044433559582954}, {type: "LineString", coordinates: [place.France, place.Spain], number: 0.00038485760268700583}, {type: "LineString", coordinates: [place.Turkey, place.Turkey], number: 0.0012770274998250648}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Turkey], number: 0.0007347281505842838}, {type: "LineString", coordinates: [place.SouthKorea, place.SouthKorea], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.France, place.UnitedKingdom], number: 0.0006472605136099643}, {type: "LineString", coordinates: [place.France, place.Italy], number: 0.0006647540410048283}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Italy], number: 0.000699741095794556}, {type: "LineString", coordinates: [place.France, place.Denmark], number: 0.00027989643831782243}, {type: "LineString", coordinates: [place.Canada, place.Brazil], number: 0.00043733818487159753}, {type: "LineString", coordinates: [place.Russia, place.Brazil], number: 0.00043733818487159753}, {type: "LineString", coordinates: [place.France, place.Australia], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Sweden, place.Germany], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.Netherlands, place.Germany], number: 0.0007872087327688755}, {type: "LineString", coordinates: [place.UnitedStates, place.Austria], number: 0.0004898187670561892}, {type: "LineString", coordinates: [place.UnitedStates, place.Argentina], number: 0.0007522216779791477}, {type: "LineString", coordinates: [place.UnitedKingdom, place.NewZealand], number: 0.0006297669862151004}, {type: "LineString", coordinates: [place.Germany, place.China], number: 0.0011020922258764257}, {type: "LineString", coordinates: [place.Australia, place.NewZealand], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.UnitedStates, place.Croatia], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Germany, place.Greece], number: 0.00027989643831782243}, {type: "LineString", coordinates: [place.UnitedStates, place.Hungary], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.Bulgaria, place.Brazil], number: 0.00033237702050241413}, {type: "LineString", coordinates: [place.UnitedStates, place.Colombia], number: 0.0004023511300818697}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Spain], number: 0.0005073122944510532}, {type: "LineString", coordinates: [place.Serbia, place.Serbia], number: 0.0020467427051990765}, {type: "LineString", coordinates: [place.Tunisia, place.Tunisia], number: 0.0003673640752921419}, {type: "LineString", coordinates: [place.Bulgaria, place.Bulgaria], number: 0.0004023511300818697}, {type: "LineString", coordinates: [place.UnitedStates, place.Morocco], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.UnitedStates, place.Nigeria], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.France, place.Tunisia], number: 0.0008571828423483311}, {type: "LineString", coordinates: [place.Australia, place.Germany], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Nigeria, place.Nigeria], number: 0.0005422993492407809}, {type: "LineString", coordinates: [place.Netherlands, place.Belgium], number: 0.000349870547897278}, {type: "LineString", coordinates: [place.Lithuania, place.UnitedStates], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.France, place.Chile], number: 0.0006472605136099643}, {type: "LineString", coordinates: [place.NewZealand, place.NewZealand], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.Spain, place.Mexico], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.Netherlands, place.Australia], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.CzechRepublic, place.CzechRepublic], number: 0.002676509691414177}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Ireland], number: 0.0006822475683996921}, {type: "LineString", coordinates: [place.Canada, place.India], number: 0.00033237702050241413}, {type: "LineString", coordinates: [place.Germany, place.Taiwan], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.UnitedStates, place.Poland], number: 0.00027989643831782243}, {type: "LineString", coordinates: [place.Russia, place.Lithuania], number: 0.0003673640752921419}, {type: "LineString", coordinates: [place.Italy, place.Switzerland], number: 0.0006822475683996921}, {type: "LineString", coordinates: [place.India, place.Canada], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.France, place.Iran], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Greece], number: 0.0004898187670561892}, {type: "LineString", coordinates: [place.UnitedStates, place.Thailand], number: 0.00071723462318942}, {type: "LineString", coordinates: [place.Romania, place.Pakistan], number: 0.0003673640752921419}, {type: "LineString", coordinates: [place.Estonia, place.Estonia], number: 0.0003673640752921419}, {type: "LineString", coordinates: [place.Switzerland, place.Italy], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Algeria, place.Algeria], number: 0.0006822475683996921}, {type: "LineString", coordinates: [place.Italy, place.Belgium], number: 0.0002973899657126863}, {type: "LineString", coordinates: [place.France, place.Belgium], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.Belgium, place.UnitedKingdom], number: 0.0005597928766356449}, {type: "LineString", coordinates: [place.Belgium, place.Netherlands], number: 0.0004548317122664614}, {type: "LineString", coordinates: [place.Germany, place.Chile], number: 0.0002274158561332307}, {type: "LineString", coordinates: [place.Germany, place.Mexico], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.Spain, place.UnitedStates], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.Germany, place.Turkey], number: 0.0002274158561332307}, {type: "LineString", coordinates: [place.Russia, place.Kazakhstan], number: 0.000349870547897278}, {type: "LineString", coordinates: [place.Ukraine, place.Israel], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.Ukraine, place.Algeria], number: 0.0007522216779791477}, {type: "LineString", coordinates: [place.China, place.Singapore], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Canada, place.Singapore], number: 0.00027989643831782243}, {type: "LineString", coordinates: [place.Sweden, place.Singapore], number: 0.0005073122944510532}, {type: "LineString", coordinates: [place.Russia, place.Australia], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Venezuela, place.Venezuela], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.Taiwan, place.Taiwan], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.Israel, place.Canada], number: 0.00033237702050241413}, {type: "LineString", coordinates: [place.Switzerland, place.UnitedKingdom], number: 0.00027989643831782243}, {type: "LineString", coordinates: [place.Finland, place.Canada], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.UnitedKingdom, place.China], number: 0.0006472605136099643}, {type: "LineString", coordinates: [place.Russia, place.China], number: 0.0003148834931075502}, {type: "LineString", coordinates: [place.Azerbaijan, place.Turkey], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.Belgium, place.France], number: 0.000349870547897278}, {type: "LineString", coordinates: [place.Germany, place.Italy], number: 0.00033237702050241413}, {type: "LineString", coordinates: [place.UnitedKingdom, place.HongKong], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Russia, place.Norway], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.Canada, place.Germany], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.Netherlands, place.Sweden], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Malaysia], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.France, place.China], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Denmark, place.UnitedKingdom], number: 0.0002099223287383668}, {type: "LineString", coordinates: [place.UnitedStates, place.Jordan], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.China, place.Germany], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Canada, place.Mexico], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Canada, place.China], number: 0.0003673640752921419}, {type: "LineString", coordinates: [place.Russia, place.Armenia], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Austria, place.UnitedKingdom], number: 0.0002973899657126863}, {type: "LineString", coordinates: [place.Brazil, place.UnitedKingdom], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.Armenia, place.Armenia], number: 0.0002973899657126863}, {type: "LineString", coordinates: [place.Germany, place.Pakistan], number: 0.0002449093835280946}, {type: "LineString", coordinates: [place.Thailand, place.Thailand], number: 0.0002624029109229585}, {type: "LineString", coordinates: [place.Belgium, place.Austria], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.Slovenia, place.UnitedKingdom], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.Greece, place.UnitedKingdom], number: 0.000174935273948639}, {type: "LineString", coordinates: [place.Russia, place.Belarus], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.HongKong, place.UnitedKingdom], number: 0.00019242880134350291}, {type: "LineString", coordinates: [place.France, place.Greece], number: 0.00027989643831782243}, {type: "LineString", coordinates: [place.HongKong, place.China], number: 0.000174935273948639}], "1850": [{type: "LineString", coordinates: [place.Germany, place.Germany], number: 0.6423927178153446}, {type: "LineString", coordinates: [place.UnitedStates, place.UnitedStates], number: 0.035110533159947985}, {type: "LineString", coordinates: [place.Germany, place.UnitedStates], number: 0.032509752925877766}, {type: "LineString", coordinates: [place.Netherlands, place.Netherlands], number: 0.17815344603381014}, {type: "LineString", coordinates: [place.UnitedKingdom, place.UnitedKingdom], number: 0.018205461638491547}, {type: "LineString", coordinates: [place.France, place.France], number: 0.02860858257477243}, {type: "LineString", coordinates: [place.Austria, place.Austria], number: 0.02600780234070221}, {type: "LineString", coordinates: [place.Germany, place.Austria], number: 0.014304291287386216}, {type: "LineString", coordinates: [place.Italy, place.Italy], number: 0.0247074122236671}], "1800": [{type: "LineString", coordinates: [place.Germany, place.Germany], number: 0.6746031746031746}, {type: "LineString", coordinates: [place.Netherlands, place.Netherlands], number: 0.3253968253968254}], "1900": [{type: "LineString", coordinates: [place.UnitedStates, place.UnitedStates], number: 0.258751353302057}, {type: "LineString", coordinates: [place.Germany, place.Germany], number: 0.30223745940093827}, {type: "LineString", coordinates: [place.Austria, place.UnitedStates], number: 0.0063154095994225916}, {type: "LineString", coordinates: [place.UnitedKingdom, place.UnitedKingdom], number: 0.03193792854565139}, {type: "LineString", coordinates: [place.Poland, place.Poland], number: 0.006676290147961025}, {type: "LineString", coordinates: [place.Germany, place.UnitedStates], number: 0.059545290508841574}, {type: "LineString", coordinates: [place.Finland, place.Finland], number: 0.004871887405268856}, {type: "LineString", coordinates: [place.Russia, place.UnitedStates], number: 0.0054132082280765065}, {type: "LineString", coordinates: [place.UnitedKingdom, place.UnitedStates], number: 0.005954529050884157}, {type: "LineString", coordinates: [place.Russia, place.Russia], number: 0.026885600866113316}, {type: "LineString", coordinates: [place.Italy, place.UnitedStates], number: 0.001804402742692169}, {type: "LineString", coordinates: [place.Sweden, place.UnitedStates], number: 0.00288704438830747}, {type: "LineString", coordinates: [place.Austria, place.Austria], number: 0.013172140021652833}, {type: "LineString", coordinates: [place.France, place.France], number: 0.015156983038614218}, {type: "LineString", coordinates: [place.Poland, place.UnitedStates], number: 0.003428365211115121}, {type: "LineString", coordinates: [place.Austria, place.Germany], number: 0.014074341392998917}, {type: "LineString", coordinates: [place.Norway, place.UnitedStates], number: 0.001984843016961386}, {type: "LineString", coordinates: [place.Hungary, place.Hungary], number: 0.0027066041140382533}, {type: "LineString", coordinates: [place.Germany, place.Switzerland], number: 0.020570191266690727}, {type: "LineString", coordinates: [place.Italy, place.Italy], number: 0.007398051245037893}, {type: "LineString", coordinates: [place.Hungary, place.UnitedStates], number: 0.0054132082280765065}, {type: "LineString", coordinates: [place.CzechRepublic, place.CzechRepublic], number: 0.00288704438830747}, {type: "LineString", coordinates: [place.Netherlands, place.Netherlands], number: 0.13063875857091303}, {type: "LineString", coordinates: [place.Switzerland, place.Switzerland], number: 0.013713460844460484}, {type: "LineString", coordinates: [place.Germany, place.Austria], number: 0.00288704438830747}, {type: "LineString", coordinates: [place.Spain, place.Spain], number: 0.003428365211115121}, {type: "LineString", coordinates: [place.Japan, place.Japan], number: 0.001804402742692169}, {type: "LineString", coordinates: [place.Germany, place.Poland], number: 0.0025261638397690365}, {type: "LineString", coordinates: [place.Switzerland, place.UnitedStates], number: 0.00288704438830747}, {type: "LineString", coordinates: [place.France, place.Poland], number: 0.003067484662576687}, {type: "LineString", coordinates: [place.Ukraine, place.UnitedStates], number: 0.0070371706964994585}, {type: "LineString", coordinates: [place.Germany, place.UnitedKingdom], number: 0.0023457235654998194}, {type: "LineString", coordinates: [place.France, place.Serbia], number: 0.001804402742692169}, {type: "LineString", coordinates: [place.Sweden, place.Sweden], number: 0.003247924936845904}, {type: "LineString", coordinates: [place.Austria, place.Netherlands], number: 0.003428365211115121}, {type: "LineString", coordinates: [place.Belgium, place.Belgium], number: 0.001984843016961386}, {type: "LineString", coordinates: [place.Hungary, place.Switzerland], number: 0.00288704438830747}, {type: "LineString", coordinates: [place.Ukraine, place.Russia], number: 0.004691447130999639}, {type: "LineString", coordinates: [place.Netherlands, place.UnitedStates], number: 0.0027066041140382533}, {type: "LineString", coordinates: [place.Germany, place.Netherlands], number: 0.0021652832912306026}, {type: "LineString", coordinates: [place.Ukraine, place.Ukraine], number: 0.004150126308191988}, {type: "LineString", coordinates: [place.Germany, place.Turkey], number: 0.0025261638397690365}], "1950": [{type: "LineString", coordinates: [place.UnitedStates, place.UnitedStates], number: 0.4715640951555427}, {type: "LineString", coordinates: [place.UnitedKingdom, place.UnitedStates], number: 0.01717952422228643}, {type: "LineString", coordinates: [place.Germany, place.UnitedStates], number: 0.011328614080708852}, {type: "LineString", coordinates: [place.Australia, place.UnitedStates], number: 0.0013242800731965714}, {type: "LineString", coordinates: [place.Poland, place.UnitedStates], number: 0.0032505056342097658}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Australia], number: 0.003274583453722431}, {type: "LineString", coordinates: [place.CzechRepublic, place.UnitedStates], number: 0.0014928248097852259}, {type: "LineString", coordinates: [place.Germany, place.Germany], number: 0.11290089569488587}, {type: "LineString", coordinates: [place.Switzerland, place.UnitedStates], number: 0.0042978907830106905}, {type: "LineString", coordinates: [place.Italy, place.UnitedStates], number: 0.0009149571414812674}, {type: "LineString", coordinates: [place.UnitedKingdom, place.UnitedKingdom], number: 0.04604882981797168}, {type: "LineString", coordinates: [place.Netherlands, place.Netherlands], number: 0.027641336800539342}, {type: "LineString", coordinates: [place.Austria, place.UnitedStates], number: 0.001107579697582587}, {type: "LineString", coordinates: [place.UnitedStates, place.Canada], number: 0.014338341519791967}, {type: "LineString", coordinates: [place.UnitedStates, place.India], number: 0.002347587402484831}, {type: "LineString", coordinates: [place.Germany, place.UnitedKingdom], number: 0.0007945680439179428}, {type: "LineString", coordinates: [place.Japan, place.Japan], number: 0.0019262255610131946}, {type: "LineString", coordinates: [place.Japan, place.UnitedStates], number: 0.003382933641529423}, {type: "LineString", coordinates: [place.Israel, place.UnitedStates], number: 0.003154194356159106}, {type: "LineString", coordinates: [place.Hungary, place.UnitedStates], number: 0.0010353462390445922}, {type: "LineString", coordinates: [place.Sweden, place.UnitedStates], number: 0.0016974862756428779}, {type: "LineString", coordinates: [place.Netherlands, place.UnitedStates], number: 0.002191081575652509}, {type: "LineString", coordinates: [place.Russia, place.UnitedStates], number: 0.003587595107387075}, {type: "LineString", coordinates: [place.Ukraine, place.UnitedStates], number: 0.0002528171048829818}, {type: "LineString", coordinates: [place.Finland, place.UnitedStates], number: 0.0006862178561109506}, {type: "LineString", coordinates: [place.India, place.UnitedStates], number: 0.003635750746412405}, {type: "LineString", coordinates: [place.SouthAfrica, place.UnitedStates], number: 0.0003009727439083117}, {type: "LineString", coordinates: [place.Russia, place.Russia], number: 0.028303476837137628}, {type: "LineString", coordinates: [place.Canada, place.UnitedStates], number: 0.00561013194645093}, {type: "LineString", coordinates: [place.Romania, place.UnitedStates], number: 0.0008908793219686025}, {type: "LineString", coordinates: [place.France, place.UnitedStates], number: 0.0026244823268804776}, {type: "LineString", coordinates: [place.Croatia, place.UnitedStates], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.Denmark, place.UnitedStates], number: 0.00034912838293364154}, {type: "LineString", coordinates: [place.Argentina, place.UnitedStates], number: 0.00024077819512664933}, {type: "LineString", coordinates: [place.Sweden, place.Sweden], number: 0.007066840026967158}, {type: "LineString", coordinates: [place.France, place.France], number: 0.031253009727439086}, {type: "LineString", coordinates: [place.Switzerland, place.Switzerland], number: 0.011087835885582202}, {type: "LineString", coordinates: [place.SouthAfrica, place.SouthAfrica], number: 0.0009871906000192623}, {type: "LineString", coordinates: [place.France, place.Serbia], number: 0.00034912838293364154}, {type: "LineString", coordinates: [place.UnitedStates, place.Argentina], number: 0.0007825291341616103}, {type: "LineString", coordinates: [place.Canada, place.Canada], number: 0.010088606375806606}, {type: "LineString", coordinates: [place.Brazil, place.Brazil], number: 0.0023114706732158337}, {type: "LineString", coordinates: [place.Brazil, place.UnitedStates], number: 0.00015650582683232207}, {type: "LineString", coordinates: [place.Spain, place.Spain], number: 0.014422613888086295}, {type: "LineString", coordinates: [place.Poland, place.Poland], number: 0.012388038139266108}, {type: "LineString", coordinates: [place.UnitedStates, place.UnitedKingdom], number: 0.003274583453722431},  {type: "LineString", coordinates: [place.UnitedStates, place.Portugal], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.Belgium, place.Belgium], number: 0.006573244726957527}, {type: "LineString", coordinates: [place.Belgium, place.UnitedStates], number: 0.0002167003756139844}, {type: "LineString", coordinates: [place.UnitedStates, place.Israel], number: 0.003948762400077049}, {type: "LineString", coordinates: [place.Romania, place.Romania], number: 0.002937493980545122}, {type: "LineString", coordinates: [place.Austria, place.UnitedKingdom], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.Hungary, place.Hungary], number: 0.0015169026292978908}, {type: "LineString", coordinates: [place.Austria, place.Austria], number: 0.006163921795242223}, {type: "LineString", coordinates: [place.Israel, place.Israel], number: 0.003912645670808052}, {type: "LineString", coordinates: [place.Finland, place.Finland], number: 0.0038042954830010594}, {type: "LineString", coordinates: [place.India, place.India], number: 0.0043580853317923525}, {type: "LineString", coordinates: [place.UnitedStates, place.Venezuela], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.Australia, place.Australia], number: 0.0036598285659250698}, {type: "LineString", coordinates: [place.Greece, place.UnitedStates], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.UnitedKingdom, place.India], number: 0.0011798131561205818}, {type: "LineString", coordinates: [place.Serbia, place.UnitedStates], number: 0.0003009727439083117}, {type: "LineString", coordinates: [place.Serbia, place.Serbia], number: 0.0035274005586054128}, {type: "LineString", coordinates: [place.France, place.Israel], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.Austria, place.Germany], number: 0.0023596263122411636}, {type: "LineString", coordinates: [place.Russia, place.Australia], number: 0.0002528171048829818}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Canada], number: 0.002841182702494462}, {type: "LineString", coordinates: [place.France, place.Romania], number: 0.0003250505634209766}, {type: "LineString", coordinates: [place.UnitedStates, place.Denmark], number: 0.00044543966098430126}, {type: "LineString", coordinates: [place.Croatia, place.Croatia], number: 0.0004334007512279688}, {type: "LineString", coordinates: [place.CzechRepublic, place.CzechRepublic], number: 0.0011436964268515843}, {type: "LineString", coordinates: [place.Russia, place.Uzbekistan], number: 0.0002889338341519792}, {type: "LineString", coordinates: [place.Germany, place.Switzerland], number: 0.0014085524414908985}, {type: "LineString", coordinates: [place.UnitedStates, place.Italy], number: 0.0007343734951362805}, {type: "LineString", coordinates: [place.UnitedKingdom, place.SouthAfrica], number: 0.00031301165366464414}, {type: "LineString", coordinates: [place.Hungary, place.UnitedKingdom], number: 0.0003009727439083117}, {type: "LineString", coordinates: [place.Cuba, place.UnitedStates], number: 0.00016854473658865454}, {type: "LineString", coordinates: [place.UnitedStates, place.Australia], number: 0.0015289415390542232}, {type: "LineString", coordinates: [place.Germany, place.Canada], number: 0.0010473851488009246}, {type: "LineString", coordinates: [place.UnitedStates, place.Netherlands], number: 0.0017095251853992102}, {type: "LineString", coordinates: [place.UnitedStates, place.France], number: 0.0027448714244438024}, {type: "LineString", coordinates: [place.Uzbekistan, place.Ukraine], number: 0.0003009727439083117}, {type: "LineString", coordinates: [place.Portugal, place.Portugal], number: 0.0003972840219589714}, {type: "LineString", coordinates: [place.Russia, place.Canada], number: 0.00031301165366464414}, {type: "LineString", coordinates: [place.Germany, place.France], number: 0.0003009727439083117}, {type: "LineString", coordinates: [place.Russia, place.Ukraine], number: 0.0024077819512664934}, {type: "LineString", coordinates: [place.UnitedStates, place.Brazil], number: 0.002889338341519792}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Switzerland], number: 0.00024077819512664933}, {type: "LineString", coordinates: [place.Russia, place.Lithuania], number: 0.001468746990272561}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Netherlands], number: 0.00044543966098430126}, {type: "LineString", coordinates: [place.France, place.Spain], number: 0.00044543966098430126}, {type: "LineString", coordinates: [place.Hungary, place.Canada], number: 0.00024077819512664933}, {type: "LineString", coordinates: [place.Ukraine, place.Ukraine], number: 0.006103727246460561}, {type: "LineString", coordinates: [place.UnitedStates, place.Finland], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.Germany, place.Netherlands], number: 0.0006741789463546181}, {type: "LineString", coordinates: [place.UnitedStates, place.HongKong], number: 0.00037320620244630647}, {type: "LineString", coordinates: [place.Denmark, place.Denmark], number: 0.0007464124048926129}, {type: "LineString", coordinates: [place.Belgium, place.Netherlands], number: 0.00016854473658865454}, {type: "LineString", coordinates: [place.Israel, place.Canada], number: 0.0003009727439083117}, {type: "LineString", coordinates: [place.Switzerland, place.Canada], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.France, place.Canada], number: 0.00034912838293364154}, {type: "LineString", coordinates: [place.Australia, place.Canada], number: 0.0003370894731773091}, {type: "LineString", coordinates: [place.Israel, place.UnitedKingdom], number: 0.0002167003756139844}, {type: "LineString", coordinates: [place.Austria, place.Canada], number: 0.00012038909756332466}, {type: "LineString", coordinates: [place.Germany, place.Bulgaria], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.Canada, place.Australia], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.Canada, place.UnitedKingdom], number: 0.00015650582683232207}, {type: "LineString", coordinates: [place.Switzerland, place.Germany], number: 0.0011677742463642492}, {type: "LineString", coordinates: [place.Germany, place.Italy], number: 0.0001444669170759896}, {type: "LineString", coordinates: [place.Switzerland, place.France], number: 0.0003009727439083117}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Israel], number: 0.000180583646344987}, {type: "LineString", coordinates: [place.Ukraine, place.Russia], number: 0.0011196186073389193}, {type: "LineString", coordinates: [place.Russia, place.Israel], number: 0.0003250505634209766}, {type: "LineString", coordinates: [place.Germany, place.Austria], number: 0.0005297120292786286}, {type: "LineString", coordinates: [place.UnitedStates, place.Germany], number: 0.0033708947317730906}, {type: "LineString", coordinates: [place.UnitedStates, place.Spain], number: 0.0006019454878166234}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Ireland], number: 0.00027689492439564675}, {type: "LineString", coordinates: [place.UnitedStates, place.Ireland], number: 0.0005056342097659636}, {type: "LineString", coordinates: [place.India, place.Canada], number: 0.00040932293171530386}, {type: "LineString", coordinates: [place.Slovenia, place.Slovenia], number: 0.0007464124048926129}, {type: "LineString", coordinates: [place.UnitedStates, place.Slovenia], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.UnitedStates, place.Sweden], number: 0.00040932293171530386}, {type: "LineString", coordinates: [place.UnitedStates, place.Greece], number: 0.0006139843975729558}, {type: "LineString", coordinates: [place.Russia, place.Germany], number: 0.0007102956756236155}, {type: "LineString", coordinates: [place.CzechRepublic, place.Germany], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.Netherlands, place.Germany], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.France, place.Germany], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.Canada, place.Germany], number: 0.00038524511220263893}, {type: "LineString", coordinates: [place.Croatia, place.Germany], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.Italy, place.Romania], number: 0.0002167003756139844}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Denmark], number: 0.0003370894731773091}, {type: "LineString", coordinates: [place.UnitedStates, place.Turkey], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Germany], number: 0.00044543966098430126}, {type: "LineString", coordinates: [place.UnitedStates, place.Switzerland], number: 0.0010473851488009246}, {type: "LineString", coordinates: [place.Italy, place.Brazil], number: 0.00012038909756332466}, {type: "LineString", coordinates: [place.Germany, place.Turkey], number: 0.00031301165366464414}, {type: "LineString", coordinates: [place.Netherlands, place.Belgium], number: 0.00031301165366464414}, {type: "LineString", coordinates: [place.Italy, place.Italy], number: 0.002431859770779158}, {type: "LineString", coordinates: [place.Mexico, place.Mexico], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.France, place.Switzerland], number: 0.0006260233073292883}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Brazil], number: 0.0007343734951362805}, {type: "LineString", coordinates: [place.Turkey, place.Turkey], number: 0.0007102956756236155}, {type: "LineString", coordinates: [place.UnitedStates, place.Norway], number: 0.00040932293171530386}, {type: "LineString", coordinates: [place.Russia, place.Bulgaria], number: 0.00034912838293364154}, {type: "LineString", coordinates: [place.UnitedStates, place.Taiwan], number: 0.0008186458634306077}, {type: "LineString", coordinates: [place.Lithuania, place.Lithuania], number: 0.0004334007512279688}, {type: "LineString", coordinates: [place.Belgium, place.France], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.France, place.Brazil], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.UnitedStates, place.NewZealand], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.Romania, place.Canada], number: 0.00012038909756332466}, {type: "LineString", coordinates: [place.Netherlands, place.Switzerland], number: 0.0002528171048829818}, {type: "LineString", coordinates: [place.UnitedStates, place.SouthAfrica], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.Belarus, place.Belarus], number: 0.00012038909756332466}, {type: "LineString", coordinates: [place.Australia, place.UnitedKingdom], number: 0.0007102956756236155}, {type: "LineString", coordinates: [place.Argentina, place.Argentina], number: 0.001131657517095252}, {type: "LineString", coordinates: [place.Australia, place.NewZealand], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.UnitedKingdom, place.NewZealand], number: 0.0001444669170759896}, {type: "LineString", coordinates: [place.UnitedStates, place.SouthKorea], number: 0.0009992295097755947}, {type: "LineString", coordinates: [place.UnitedStates, place.Poland], number: 0.00034912838293364154}, {type: "LineString", coordinates: [place.Russia, place.Moldova], number: 0.00087884041221227}, {type: "LineString", coordinates: [place.UnitedStates, place.Belgium], number: 0.0008908793219686025}, {type: "LineString", coordinates: [place.UnitedKingdom, place.France], number: 0.000361167292689974}, {type: "LineString", coordinates: [place.UnitedStates, place.China], number: 0.00027689492439564675}, {type: "LineString", coordinates: [place.China, place.China], number: 0.00044543966098430126}, {type: "LineString", coordinates: [place.Russia, place.Azerbaijan], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.Netherlands, place.SouthAfrica], number: 0.0002167003756139844}, {type: "LineString", coordinates: [place.Greece, place.Greece], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.France, place.Belgium], number: 0.00012038909756332466}, {type: "LineString", coordinates: [place.CzechRepublic, place.Canada], number: 0.000180583646344987}, {type: "LineString", coordinates: [place.UnitedStates, place.Japan], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.Georgia, place.Poland], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.Poland, place.Canada], number: 0.00016854473658865454}, {type: "LineString", coordinates: [place.Bulgaria, place.Bulgaria], number: 0.0004695174804969662}, {type: "LineString", coordinates: [place.UnitedStates, place.Iran], number: 0.00022873928537031686}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Iran], number: 0.00042136184147163633}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Nigeria], number: 0.00019262255610131947}, {type: "LineString", coordinates: [place.Germany, place.Greece], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.UnitedStates, place.Mexico], number: 0.0005297120292786286}, {type: "LineString", coordinates: [place.Germany, place.Australia], number: 0.00016854473658865454}, {type: "LineString", coordinates: [place.France, place.Poland], number: 0.0001444669170759896}, {type: "LineString", coordinates: [place.Germany, place.Brazil], number: 0.0003370894731773091}, {type: "LineString", coordinates: [place.France, place.Morocco], number: 0.0003009727439083117}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Italy], number: 0.0003250505634209766}, {type: "LineString", coordinates: [place.Russia, place.France], number: 0.00037320620244630647}, {type: "LineString", coordinates: [place.Switzerland, place.Netherlands], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.Russia, place.Belarus], number: 0.00034912838293364154}, {type: "LineString", coordinates: [place.Russia, place.Kazakhstan], number: 0.0001444669170759896}, {type: "LineString", coordinates: [place.Russia, place.Hungary], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.CzechRepublic, place.Slovakia], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.France, place.Portugal], number: 0.0001444669170759896}, {type: "LineString", coordinates: [place.Germany, place.Argentina], number: 0.000180583646344987}, {type: "LineString", coordinates: [place.Slovakia, place.Slovakia], number: 0.0004695174804969662}, {type: "LineString", coordinates: [place.Canada, place.India], number: 0.00016854473658865454}, {type: "LineString", coordinates: [place.Russia, place.Georgia], number: 0.0003250505634209766}, {type: "LineString", coordinates: [place.India, place.UnitedKingdom], number: 0.0003250505634209766}, {type: "LineString", coordinates: [place.Nigeria, place.Nigeria], number: 0.0001444669170759896}, {type: "LineString", coordinates: [place.Netherlands, place.Canada], number: 0.00037320620244630647}, {type: "LineString", coordinates: [place.Switzerland, place.Belgium], number: 0.0004334007512279688}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Greece], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.Norway, place.Norway], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.Georgia, place.Georgia], number: 0.00015650582683232207}, {type: "LineString", coordinates: [place.UnitedKingdom, place.Portugal], number: 0.0002648560146393143}, {type: "LineString", coordinates: [place.Estonia, place.Russia], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.Russia, place.Romania], number: 0.0002889338341519792}, {type: "LineString", coordinates: [place.Russia, place.Armenia], number: 0.0006019454878166234}, {type: "LineString", coordinates: [place.Netherlands, place.UnitedKingdom], number: 0.0001444669170759896}, {type: "LineString", coordinates: [place.France, place.Argentina], number: 0.00016854473658865454}, {type: "LineString", coordinates: [place.Estonia, place.Estonia], number: 0.0004334007512279688}, {type: "LineString", coordinates: [place.Russia, place.Tajikistan], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.Azerbaijan, place.Azerbaijan], number: 0.00020466146585765193}, {type: "LineString", coordinates: [place.Moldova, place.Moldova], number: 0.00013242800731965714}, {type: "LineString", coordinates: [place.Armenia, place.Armenia], number: 0.0005056342097659636}]};
+var projection = d3.geo.kavrayskiy7()
+    .scale(170)
+    .rotate([-40, 0])
+    .translate([width / 2, height / 2])
+    .precision(.1);
+var path = d3.geo.path()
+    .projection(projection);
+var graticule = d3.geo.graticule();
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+svg.append("defs").append("path")
+    .datum({type: "Sphere"})
+    .attr("id", "sphere")
+    .attr("d", path);
+svg.append("use")
+    .attr("class", "stroke")
+    .attr("xlink:href", "#sphere");
+svg.append("use")
+    .attr("class", "fill")
+    .attr("xlink:href", "#sphere");
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+
+
+d3.json("world-110m.json", function(error, world) {
+  if (error) throw error;
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(world, world.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+  svg.insert("path", ".graticule")
+      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+      .attr("class", "boundary")
+      .attr("d", path);
+});
+d3.select(self.frameElement).style("height", height + "px");
+
+///////////////////////////////////////////////////////
+
+
+// when the input range changes update the circle 
+d3.select("#Age").on("input", function() {
+  d3.selectAll("path.route").remove();
+  update(+this.value);
+});
+
+// Initial starting radius of the circle 
+update(2000);
+
+// update the elements
+function update(Age) {
+
+  // adjust the text on the range slider
+  d3.select("#Age-value").text(Age);
+  d3.select("#Age").property("value", Age);
+  route = routeAll[Age.toString()];
+for(var i = 0; i < route.length; i++){
+  svg.append("path")
+    .datum(route[i])
+    .attr("class", "route")
+    .attr("d", path)
+    .attr("stroke-width", function(d){
+      return (Math.sqrt(d.number)*20);})
+    .transition()
+    .duration(200);
+
+
+}
+var point = svg.append("g")
+    .attr("class", "points")
+  .selectAll("g")
+    .data(d3.entries(place))
+  .enter().append("g")
+    .attr("transform", function(d) { return "translate(" + projection(d.value) + ")"; });
+point.append("circle")
+    .attr("r", 0.2);
+// point.append("text")
+//     .attr("y", 10)
+//     .attr("dy", ".71em")
+//     .text(function(d) { return d.key; });
+}
+</script>

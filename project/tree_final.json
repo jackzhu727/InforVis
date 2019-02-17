@@ -1,0 +1,2552 @@
+{
+    "nodes": [
+        {
+            "id": "Wolfgang  Krull",
+            "group": 8
+        },
+        {
+            "id": "R. L. (Robert Lee) Moore",
+            "group": 16
+        },
+        {
+            "id": "John Robert Kline",
+            "group": 16
+        },
+        {
+            "id": "Gordon Thomas Whyburn",
+            "group": 16
+        },
+        {
+            "id": "R  H  Bing",
+            "group": 16
+        },
+        {
+            "id": "John William Green",
+            "group": 10
+        },
+        {
+            "id": "Donald Alexander Flanders",
+            "group": 16
+        },
+        {
+            "id": "Oswald  Veblen",
+            "group": 10
+        },
+        {
+            "id": "E. H. (Eliakim Hastings) Moore",
+            "group": 16
+        },
+        {
+            "id": "Saunders  Mac Lane",
+            "group": 8
+        },
+        {
+            "id": "Shaun  Wylie",
+            "group": 10
+        },
+        {
+            "id": "John Henry Constantine Whitehead",
+            "group": 8
+        },
+        {
+            "id": "Philip  Franklin",
+            "group": 8
+        },
+        {
+            "id": "Joseph Leo Doob",
+            "group": 10
+        },
+        {
+            "id": "George Abram Miller",
+            "group": 8
+        },
+        {
+            "id": "Ferdinand Georg Frobenius",
+            "group": 12
+        },
+        {
+            "id": "Robert Daniel Carmichael",
+            "group": 12
+        },
+        {
+            "id": "H. C. Marston (Harold Calvin) Morse",
+            "group": 12
+        },
+        {
+            "id": "Joseph Leonard Walsh",
+            "group": 12
+        },
+        {
+            "id": "Marshall Harvey Stone",
+            "group": 12
+        },
+        {
+            "id": "Hassler  Whitney",
+            "group": 16
+        },
+        {
+            "id": "Alfred  Loewy",
+            "group": 8
+        },
+        {
+            "id": "Reinhold  Baer",
+            "group": 16
+        },
+        {
+            "id": "David Gordon Bourgin",
+            "group": 12
+        },
+        {
+            "id": "George David Birkhoff",
+            "group": 10
+        },
+        {
+            "id": "Antoni  Zygmund",
+            "group": 12
+        },
+        {
+            "id": "Richard Vincent Kadison",
+            "group": 8
+        },
+        {
+            "id": "David  Hilbert",
+            "group": 16
+        },
+        {
+            "id": "Max W. Dehn",
+            "group": 16
+        },
+        {
+            "id": "Georg Karl Wilhelm Hamel",
+            "group": 16
+        },
+        {
+            "id": "Erhard  Schmidt",
+            "group": 12
+        },
+        {
+            "id": "Robert Johann Maria König",
+            "group": 12
+        },
+        {
+            "id": "Hermann Claus Hugo Weyl",
+            "group": 10
+        },
+        {
+            "id": "Richard  Courant",
+            "group": 12
+        },
+        {
+            "id": "Erich  Hecke",
+            "group": 10
+        },
+        {
+            "id": "Hugo Dyonizy Steinhaus",
+            "group": 10
+        },
+        {
+            "id": "Hellmuth  Kneser",
+            "group": 16
+        },
+        {
+            "id": "C. Felix (Christian) Klein",
+            "group": 16
+        },
+        {
+            "id": "Julius  Plücker",
+            "group": 16
+        },
+        {
+            "id": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "group": 8
+        },
+        {
+            "id": "Otto  Staude",
+            "group": 10
+        },
+        {
+            "id": "Maxime  Bôcher",
+            "group": 8
+        },
+        {
+            "id": "Philipp  Furtwängler",
+            "group": 10
+        },
+        {
+            "id": "William Edward Story",
+            "group": 8
+        },
+        {
+            "id": "Solomon  Lefschetz",
+            "group": 12
+        },
+        {
+            "id": "Karl Theodor Wilhelm Weierstraß",
+            "group": 12
+        },
+        {
+            "id": "Hermann Amandus Schwarz",
+            "group": 12
+        },
+        {
+            "id": "Marcel  Riesz",
+            "group": 12
+        },
+        {
+            "id": "Leopold (Lipót) Fejér",
+            "group": 12
+        },
+        {
+            "id": "C. Einar (Carl) Hille",
+            "group": 12
+        },
+        {
+            "id": "Constantin  Carathéodory",
+            "group": 12
+        },
+        {
+            "id": "Hans Adolph Rademacher",
+            "group": 12
+        },
+        {
+            "id": "Richard Dagobert Brauer",
+            "group": 8
+        },
+        {
+            "id": "Frank Nelson Cole",
+            "group": 8
+        },
+        {
+            "id": "Emil  Artin",
+            "group": 8
+        },
+        {
+            "id": "Sumner Byron Myers",
+            "group": 16
+        },
+        {
+            "id": "Herbert Ellis Robbins",
+            "group": 16
+        },
+        {
+            "id": "Norman Earl Steenrod",
+            "group": 16
+        },
+        {
+            "id": "Edmund  Landau",
+            "group": 8
+        },
+        {
+            "id": "I.  Paul (Isaak) Bernays",
+            "group": 8
+        },
+        {
+            "id": "H. A. (Hubert Anson) Newton",
+            "group": 10
+        },
+        {
+            "id": "Stephen Cole Kleene",
+            "group": 10
+        },
+        {
+            "id": "Alonzo  Church",
+            "group": 10
+        },
+        {
+            "id": "John Barkley Rosser",
+            "group": 10
+        },
+        {
+            "id": "Hartley  Rogers, Jr.",
+            "group": 10
+        },
+        {
+            "id": "Dana Stewart Scott",
+            "group": 10
+        },
+        {
+            "id": "Salomon  Bochner",
+            "group": 12
+        },
+        {
+            "id": "Albert William Tucker",
+            "group": 16
+        },
+        {
+            "id": "Issai  Schur",
+            "group": 8
+        },
+        {
+            "id": "Hugh Daniel Brunk",
+            "group": 10
+        },
+        {
+            "id": "Heinrich  Bruns",
+            "group": 10
+        },
+        {
+            "id": "Friedrich Hermann Schottky",
+            "group": 8
+        },
+        {
+            "id": "Tibor  Radó",
+            "group": 16
+        },
+        {
+            "id": "Nikolai Nikolayevich Luzin",
+            "group": 16
+        },
+        {
+            "id": "Andrei Nikolayevich Kolmogorov",
+            "group": 10
+        },
+        {
+            "id": "William Kirby Linvill",
+            "group": 10
+        },
+        {
+            "id": "Lazarus Immanuel Fuchs",
+            "group": 12
+        },
+        {
+            "id": "Wilhelm  Magnus",
+            "group": 8
+        },
+        {
+            "id": "Wacław  Sierpiński",
+            "group": 8
+        },
+        {
+            "id": "Stanislaw  Zaremba",
+            "group": 12
+        },
+        {
+            "id": "Stefan  Mazurkiewicz",
+            "group": 12
+        },
+        {
+            "id": "Karol  Borsuk",
+            "group": 16
+        },
+        {
+            "id": "Erich Leo Lehmann",
+            "group": 10
+        },
+        {
+            "id": "Jerzy  Neyman",
+            "group": 10
+        },
+        {
+            "id": "Nachman  Aronszajn",
+            "group": 12
+        },
+        {
+            "id": "Alan Jay Perlis",
+            "group": 10
+        },
+        {
+            "id": "Richard James Duffin",
+            "group": 10
+        },
+        {
+            "id": "C.-C. (Chia-Chiao) Lin",
+            "group": 10
+        },
+        {
+            "id": "Joseph Bishop Keller",
+            "group": 10
+        },
+        {
+            "id": "George (György) Pólya",
+            "group": 10
+        },
+        {
+            "id": "Theodore  von Kármán",
+            "group": 10
+        },
+        {
+            "id": "Ralph Hartzler Fox",
+            "group": 16
+        },
+        {
+            "id": "Aleksander Michał Rajchman",
+            "group": 12
+        },
+        {
+            "id": "James Johnston Stoker",
+            "group": 16
+        },
+        {
+            "id": "Kurt  Reidemeister",
+            "group": 16
+        },
+        {
+            "id": "Heinrich Adolph Behnke",
+            "group": 12
+        },
+        {
+            "id": "Wilhelm  Maak",
+            "group": 12
+        },
+        {
+            "id": "Helmut  Wielandt",
+            "group": 8
+        },
+        {
+            "id": "Gustave  Choquet",
+            "group": 12
+        },
+        {
+            "id": "Carl Gustav Jacob Jacobi",
+            "group": 12
+        },
+        {
+            "id": "John Wilder Tukey",
+            "group": 10
+        },
+        {
+            "id": "Hans  Freudenthal",
+            "group": 16
+        },
+        {
+            "id": "Heinz  Hopf",
+            "group": 16
+        },
+        {
+            "id": "Siméon Denis Poisson",
+            "group": 10
+        },
+        {
+            "id": "Joseph Louis Lagrange",
+            "group": 12
+        },
+        {
+            "id": "Gustav Peter Lejeune Dirichlet",
+            "group": 8
+        },
+        {
+            "id": "René Maurice Fréchet",
+            "group": 12
+        },
+        {
+            "id": "Bernhard Hermann Neumann",
+            "group": 8
+        },
+        {
+            "id": "Richard  Rado",
+            "group": 16
+        },
+        {
+            "id": "Jean-Baptiste Joseph Fourier",
+            "group": 12
+        },
+        {
+            "id": "Johann Friedrich Pfaff",
+            "group": 12
+        },
+        {
+            "id": "Carl Friedrich Gauß",
+            "group": 12
+        },
+        {
+            "id": "Paul  Du Bois-Reymond",
+            "group": 10
+        },
+        {
+            "id": "Ernst Eduard Kummer",
+            "group": 16
+        },
+        {
+            "id": "Leo  Königsberger",
+            "group": 10
+        },
+        {
+            "id": "Beno  Eckmann",
+            "group": 10
+        },
+        {
+            "id": "Peter Jost Huber",
+            "group": 10
+        },
+        {
+            "id": "Kurt August Hirsch",
+            "group": 8
+        },
+        {
+            "id": "Wilhelm  Scheibner",
+            "group": 10
+        },
+        {
+            "id": "Wilhelm Johann Eugen Blaschke",
+            "group": 8
+        },
+        {
+            "id": "Friedrich Wilhelm Bessel",
+            "group": 10
+        },
+        {
+            "id": "Wilhelm  Wirtinger",
+            "group": 12
+        },
+        {
+            "id": "Otto Ludwig Hölder",
+            "group": 8
+        },
+        {
+            "id": "Emil  Hilb",
+            "group": 12
+        },
+        {
+            "id": "Ludwig  Bieberbach",
+            "group": 12
+        },
+        {
+            "id": "Werner Johannes Schmeidler",
+            "group": 8
+        },
+        {
+            "id": "Rudolf Otto Sigismund Lipschitz",
+            "group": 12
+        },
+        {
+            "id": "Harald  Cramér",
+            "group": 10
+        },
+        {
+            "id": "Lothar  Collatz",
+            "group": 10
+        },
+        {
+            "id": "Adolf  Hammerstein",
+            "group": 8
+        },
+        {
+            "id": "Alfred  Klose",
+            "group": 10
+        },
+        {
+            "id": "Konrad Hermann Theodor Knopp",
+            "group": 12
+        },
+        {
+            "id": "Friedrich  Hirzebruch",
+            "group": 16
+        },
+        {
+            "id": "Ernst Ferdinand Peschl",
+            "group": 12
+        },
+        {
+            "id": "Karl-Heinrich  Weise",
+            "group": 10
+        },
+        {
+            "id": "Eduard L. Stiefel",
+            "group": 10
+        },
+        {
+            "id": "Kurt Otto Friedrichs",
+            "group": 10
+        },
+        {
+            "id": "Wolfgang  Pauli",
+            "group": 10
+        },
+        {
+            "id": "Szolem  Mandelbrojt",
+            "group": 8
+        },
+        {
+            "id": "Graham  Higman",
+            "group": 8
+        },
+        {
+            "id": "George Whitelaw Mackey",
+            "group": 8
+        },
+        {
+            "id": "Nicolai Vasilievich Bugaev",
+            "group": 12
+        },
+        {
+            "id": "Dimitri Fedorowitsch Egorov",
+            "group": 16
+        },
+        {
+            "id": "Pavel Sergeevich Aleksandrov",
+            "group": 10
+        },
+        {
+            "id": "Kazimierz  Kuratowski",
+            "group": 16
+        },
+        {
+            "id": "Arnaud  Denjoy",
+            "group": 12
+        },
+        {
+            "id": "Jacques Salomon Hadamard",
+            "group": 12
+        },
+        {
+            "id": "Robert  Fortet",
+            "group": 10
+        },
+        {
+            "id": "Heinrich Ferdinand Scherk",
+            "group": 8
+        },
+        {
+            "id": "Edmund  Hlawka",
+            "group": 8
+        },
+        {
+            "id": "Michel  Chasles",
+            "group": 16
+        },
+        {
+            "id": "Emil  Weyr",
+            "group": 16
+        },
+        {
+            "id": "Christoph  Gudermann",
+            "group": 12
+        },
+        {
+            "id": "Christian Ludwig Gerling",
+            "group": 10
+        },
+        {
+            "id": "Hermann  Minkowski",
+            "group": 16
+        },
+        {
+            "id": "Albert  Pfluger",
+            "group": 12
+        },
+        {
+            "id": "Walter  Saxer",
+            "group": 10
+        },
+        {
+            "id": "Alexander  Grothendieck",
+            "group": 12
+        },
+        {
+            "id": "John Archibald Wheeler",
+            "group": 16
+        },
+        {
+            "id": "Arnold Johannes Wilhelm Sommerfeld",
+            "group": 10
+        },
+        {
+            "id": "George Bernard Dantzig",
+            "group": 10
+        },
+        {
+            "id": "Carl Gottfried Neumann",
+            "group": 12
+        },
+        {
+            "id": "Lucien Marie Le Cam",
+            "group": 10
+        },
+        {
+            "id": "Charles  Hermite",
+            "group": 12
+        },
+        {
+            "id": "William  Feller",
+            "group": 10
+        },
+        {
+            "id": "Paul Pierre Lévy",
+            "group": 10
+        },
+        {
+            "id": "Alexander Friedrich Karl Wilkens",
+            "group": 10
+        },
+        {
+            "id": "Jean Alexandre Eugène Dieudonné",
+            "group": 8
+        },
+        {
+            "id": "Laurent  Schwartz",
+            "group": 12
+        },
+        {
+            "id": "Gaston  Darboux",
+            "group": 12
+        },
+        {
+            "id": "Jules  Tannery",
+            "group": 8
+        },
+        {
+            "id": "C. Émile (Charles) Picard",
+            "group": 8
+        },
+        {
+            "id": "Harold Meade Mott-Smith",
+            "group": 12
+        },
+        {
+            "id": "Mikhail Alekseevich Lavrentjev",
+            "group": 10
+        },
+        {
+            "id": "Georg  Aumann",
+            "group": 16
+        },
+        {
+            "id": "Jacques-Louis  Lions",
+            "group": 12
+        },
+        {
+            "id": "Michael (Mihály) Fekete",
+            "group": 10
+        },
+        {
+            "id": "Edward  Kasner",
+            "group": 16
+        },
+        {
+            "id": "Henry Lewis Rietz",
+            "group": 10
+        },
+        {
+            "id": "Leonhard  Euler",
+            "group": 8
+        },
+        {
+            "id": "Émile  Borel",
+            "group": 10
+        },
+        {
+            "id": "Enno Heeren Dirksen",
+            "group": 10
+        },
+        {
+            "id": "Erich  Kamke",
+            "group": 12
+        },
+        {
+            "id": "Franz  Rellich",
+            "group": 12
+        },
+        {
+            "id": "Carl Ludwig Siegel",
+            "group": 8
+        },
+        {
+            "id": "Shokichi  Iyanaga",
+            "group": 16
+        },
+        {
+            "id": "Nicholas  Kemmer",
+            "group": 10
+        },
+        {
+            "id": "Otto  Haupt",
+            "group": 16
+        },
+        {
+            "id": "Oskar  Perron",
+            "group": 12
+        },
+        {
+            "id": "Otto  Hesse",
+            "group": 8
+        },
+        {
+            "id": "Georg  Rost",
+            "group": 8
+        },
+        {
+            "id": "Karl Christian von Langsdorf",
+            "group": 10
+        },
+        {
+            "id": "Martin  Ohm",
+            "group": 10
+        },
+        {
+            "id": "Tonio  Rella",
+            "group": 10
+        },
+        {
+            "id": "Alwin Oswald Walther",
+            "group": 12
+        },
+        {
+            "id": "Henri Paul Cartan",
+            "group": 8
+        },
+        {
+            "id": "Nikolaus  Hofreiter",
+            "group": 8
+        },
+        {
+            "id": "Paul Hermann Harzer",
+            "group": 10
+        },
+        {
+            "id": "Ludwig  Prandtl",
+            "group": 10
+        },
+        {
+            "id": "Werner Karl Heisenberg",
+            "group": 10
+        },
+        {
+            "id": "Friedrich Emil Prym",
+            "group": 8
+        },
+        {
+            "id": "Egon  Ullrich",
+            "group": 12
+        },
+        {
+            "id": "Robert  Daublewsky von Sterneck",
+            "group": 8
+        },
+        {
+            "id": "Aleksandr Gennadievich Kurosh",
+            "group": 8
+        },
+        {
+            "id": "Max Otto Lagally",
+            "group": 10
+        },
+        {
+            "id": "Felix  Burkhardt",
+            "group": 10
+        },
+        {
+            "id": "Ivan Georgievich Petrovsky",
+            "group": 12
+        },
+        {
+            "id": "Joseph  Liouville",
+            "group": 12
+        },
+        {
+            "id": "Res  Jost",
+            "group": 10
+        },
+        {
+            "id": "Markus E. Fierz",
+            "group": 10
+        },
+        {
+            "id": "Teiji  Takagi",
+            "group": 12
+        },
+        {
+            "id": "Aleksandr Yakovlevich Khinchin",
+            "group": 10
+        },
+        {
+            "id": "Louis  Kollros",
+            "group": 16
+        },
+        {
+            "id": "Ferdinand  Gonseth",
+            "group": 4
+        },
+        {
+            "id": "Bernhard Friedrich Thibaut",
+            "group": 4
+        },
+        {
+            "id": "Friedrich Julius Richelot",
+            "group": 8
+        },
+        {
+            "id": "Richard  Bär",
+            "group": 10
+        },
+        {
+            "id": "Paul  Montel",
+            "group": 12
+        },
+        {
+            "id": "Ernst Adolph Guillemin",
+            "group": 10
+        },
+        {
+            "id": "Karl Ferdinand Herzfeld",
+            "group": 10
+        },
+        {
+            "id": "Robert Mario Fano",
+            "group": 10
+        },
+        {
+            "id": "Heinrich Wilhelm Brandes",
+            "group": 10
+        },
+        {
+            "id": "Georg Christoph Lichtenberg",
+            "group": 10
+        },
+        {
+            "id": "Hans Wolfgang Liepmann",
+            "group": 10
+        },
+        {
+            "id": "Abraham Gotthelf Kästner",
+            "group": 4
+        },
+        {
+            "id": "Gregor  Wentzel",
+            "group": 10
+        },
+        {
+            "id": "August Otto Föppl",
+            "group": 10
+        },
+        {
+            "id": "Georges  Valiron",
+            "group": 12
+        },
+        {
+            "id": "Paul Sophus Epstein",
+            "group": 10
+        },
+        {
+            "id": "Jean-Pierre  Kahane",
+            "group": 12
+        },
+        {
+            "id": "James Norman Goodier",
+            "group": 10
+        },
+        {
+            "id": "Edmund  Husserl",
+            "group": 4
+        },
+        {
+            "id": "Henri Léon Lebesgue",
+            "group": 12
+        },
+        {
+            "id": "Moritz  Réthy",
+            "group": 16
+        },
+        {
+            "id": "Stephen Prokofyevich Timoshenko",
+            "group": 10
+        },
+        {
+            "id": "Frank E. Marble",
+            "group": 10
+        },
+        {
+            "id": "Eugène-Charles  Catalan",
+            "group": 16
+        },
+        {
+            "id": "René-Louis  Baire",
+            "group": 12
+        },
+        {
+            "id": "Erwin Richard Fues",
+            "group": 10
+        },
+        {
+            "id": "Carl Christian Bruhns",
+            "group": 10
+        },
+        {
+            "id": "Christian August Hausen",
+            "group": 10
+        },
+        {
+            "id": "Edwin Crawford Kemble",
+            "group": 10
+        },
+        {
+            "id": "Franz Carl Josef Mertens",
+            "group": 10
+        },
+        {
+            "id": "Friedrich  Hasenöhrl",
+            "group": 10
+        },
+        {
+            "id": "Frigyes (Frédéric) Riesz",
+            "group": 12
+        },
+        {
+            "id": "Georgy Fedoseevich Voronoy",
+            "group": 4
+        },
+        {
+            "id": "Gerhard Hermann Waldemar Kowalewski",
+            "group": 8
+        },
+        {
+            "id": "Gustav  Herglotz",
+            "group": 8
+        },
+        {
+            "id": "Gustav  Ritter von Escherich",
+            "group": 10
+        },
+        {
+            "id": "Gustav Conrad Bauer",
+            "group": 10
+        },
+        {
+            "id": "Heinrich Franz Friedrich Tietze",
+            "group": 8
+        },
+        {
+            "id": "Hermann Ludwig Ferdinand von Helmholtz",
+            "group": 10
+        },
+        {
+            "id": "Johann  Bernoulli",
+            "group": 12
+        },
+        {
+            "id": "Pierre-Simon  Laplace",
+            "group": 12
+        }
+    ],
+    "links": [
+        {
+            "source": "Alfred  Loewy",
+            "target": "Wolfgang  Krull",
+            "value": 41
+        },
+        {
+            "source": "Oswald  Veblen",
+            "target": "R. L. (Robert Lee) Moore",
+            "value": 50
+        },
+        {
+            "source": "E. H. (Eliakim Hastings) Moore",
+            "target": "R. L. (Robert Lee) Moore",
+            "value": 50
+        },
+        {
+            "source": "R. L. (Robert Lee) Moore",
+            "target": "John Robert Kline",
+            "value": 19
+        },
+        {
+            "source": "R. L. (Robert Lee) Moore",
+            "target": "Gordon Thomas Whyburn",
+            "value": 31
+        },
+        {
+            "source": "R. L. (Robert Lee) Moore",
+            "target": "R  H  Bing",
+            "value": 38
+        },
+        {
+            "source": "R. L. (Robert Lee) Moore",
+            "target": "John William Green",
+            "value": 2
+        },
+        {
+            "source": "John Robert Kline",
+            "target": "Donald Alexander Flanders",
+            "value": 4
+        },
+        {
+            "source": "E. H. (Eliakim Hastings) Moore",
+            "target": "Oswald  Veblen",
+            "value": 16
+        },
+        {
+            "source": "H. A. (Hubert Anson) Newton",
+            "target": "E. H. (Eliakim Hastings) Moore",
+            "value": 31
+        },
+        {
+            "source": "Hermann Claus Hugo Weyl",
+            "target": "Saunders  Mac Lane",
+            "value": 42
+        },
+        {
+            "source": "I.  Paul (Isaak) Bernays",
+            "target": "Saunders  Mac Lane",
+            "value": 42
+        },
+        {
+            "source": "Solomon  Lefschetz",
+            "target": "Shaun  Wylie",
+            "value": 5
+        },
+        {
+            "source": "Oswald  Veblen",
+            "target": "John Henry Constantine Whitehead",
+            "value": 20
+        },
+        {
+            "source": "Oswald  Veblen",
+            "target": "Philip  Franklin",
+            "value": 15
+        },
+        {
+            "source": "Joseph Leonard Walsh",
+            "target": "Joseph Leo Doob",
+            "value": 17
+        },
+        {
+            "source": "Frank Nelson Cole",
+            "target": "George Abram Miller",
+            "value": 14
+        },
+        {
+            "source": "Karl Theodor Wilhelm Weierstraß",
+            "target": "Ferdinand Georg Frobenius",
+            "value": 17
+        },
+        {
+            "source": "Ernst Eduard Kummer",
+            "target": "Ferdinand Georg Frobenius",
+            "value": 17
+        },
+        {
+            "source": "George David Birkhoff",
+            "target": "Robert Daniel Carmichael",
+            "value": 35
+        },
+        {
+            "source": "George David Birkhoff",
+            "target": "H. C. Marston (Harold Calvin) Morse",
+            "value": 14
+        },
+        {
+            "source": "Maxime  Bôcher",
+            "target": "Joseph Leonard Walsh",
+            "value": 31
+        },
+        {
+            "source": "George David Birkhoff",
+            "target": "Joseph Leonard Walsh",
+            "value": 31
+        },
+        {
+            "source": "George David Birkhoff",
+            "target": "Marshall Harvey Stone",
+            "value": 16
+        },
+        {
+            "source": "George David Birkhoff",
+            "target": "Hassler  Whitney",
+            "value": 7
+        },
+        {
+            "source": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "target": "Alfred  Loewy",
+            "value": 6
+        },
+        {
+            "source": "Gustav Conrad Bauer",
+            "target": "Alfred  Loewy",
+            "value": 6
+        },
+        {
+            "source": "Hellmuth  Kneser",
+            "target": "Reinhold  Baer",
+            "value": 60
+        },
+        {
+            "source": "Richard  Courant",
+            "target": "Reinhold  Baer",
+            "value": 60
+        },
+        {
+            "source": "Edwin Crawford Kemble",
+            "target": "David Gordon Bourgin",
+            "value": 30
+        },
+        {
+            "source": "George David Birkhoff",
+            "target": "David Gordon Bourgin",
+            "value": 30
+        },
+        {
+            "source": "E. H. (Eliakim Hastings) Moore",
+            "target": "George David Birkhoff",
+            "value": 46
+        },
+        {
+            "source": "Aleksander Michał Rajchman",
+            "target": "Antoni  Zygmund",
+            "value": 40
+        },
+        {
+            "source": "Stefan  Mazurkiewicz",
+            "target": "Antoni  Zygmund",
+            "value": 40
+        },
+        {
+            "source": "Marshall Harvey Stone",
+            "target": "Richard Vincent Kadison",
+            "value": 22
+        },
+        {
+            "source": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "target": "David  Hilbert",
+            "value": 76
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Max W. Dehn",
+            "value": 9
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Georg Karl Wilhelm Hamel",
+            "value": 12
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Erhard  Schmidt",
+            "value": 41
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Robert Johann Maria König",
+            "value": 9
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Hermann Claus Hugo Weyl",
+            "value": 21
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Richard  Courant",
+            "value": 41
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Erich  Hecke",
+            "value": 14
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Hugo Dyonizy Steinhaus",
+            "value": 16
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Hellmuth  Kneser",
+            "value": 18
+        },
+        {
+            "source": "Julius  Plücker",
+            "target": "C. Felix (Christian) Klein",
+            "value": 68
+        },
+        {
+            "source": "Rudolf Otto Sigismund Lipschitz",
+            "target": "C. Felix (Christian) Klein",
+            "value": 68
+        },
+        {
+            "source": "Christian Ludwig Gerling",
+            "target": "Julius  Plücker",
+            "value": 3
+        },
+        {
+            "source": "C. Felix (Christian) Klein",
+            "target": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "value": 48
+        },
+        {
+            "source": "Wilhelm  Scheibner",
+            "target": "Otto  Staude",
+            "value": 25
+        },
+        {
+            "source": "C. Felix (Christian) Klein",
+            "target": "Otto  Staude",
+            "value": 25
+        },
+        {
+            "source": "C. Felix (Christian) Klein",
+            "target": "Maxime  Bôcher",
+            "value": 18
+        },
+        {
+            "source": "C. Felix (Christian) Klein",
+            "target": "Philipp  Furtwängler",
+            "value": 9
+        },
+        {
+            "source": "Carl Gottfried Neumann",
+            "target": "William Edward Story",
+            "value": 20
+        },
+        {
+            "source": "Wilhelm  Scheibner",
+            "target": "William Edward Story",
+            "value": 20
+        },
+        {
+            "source": "William Edward Story",
+            "target": "Solomon  Lefschetz",
+            "value": 26
+        },
+        {
+            "source": "Christoph  Gudermann",
+            "target": "Karl Theodor Wilhelm Weierstraß",
+            "value": 42
+        },
+        {
+            "source": "Ernst Eduard Kummer",
+            "target": "Hermann Amandus Schwarz",
+            "value": 22
+        },
+        {
+            "source": "Karl Theodor Wilhelm Weierstraß",
+            "target": "Hermann Amandus Schwarz",
+            "value": 22
+        },
+        {
+            "source": "Leopold (Lipót) Fejér",
+            "target": "Marcel  Riesz",
+            "value": 6
+        },
+        {
+            "source": "Hermann Amandus Schwarz",
+            "target": "Leopold (Lipót) Fejér",
+            "value": 20
+        },
+        {
+            "source": "Marcel  Riesz",
+            "target": "C. Einar (Carl) Hille",
+            "value": 28
+        },
+        {
+            "source": "Hermann  Minkowski",
+            "target": "Constantin  Carathéodory",
+            "value": 20
+        },
+        {
+            "source": "Constantin  Carathéodory",
+            "target": "Hans Adolph Rademacher",
+            "value": 22
+        },
+        {
+            "source": "Issai  Schur",
+            "target": "Richard Dagobert Brauer",
+            "value": 30
+        },
+        {
+            "source": "Erhard  Schmidt",
+            "target": "Richard Dagobert Brauer",
+            "value": 30
+        },
+        {
+            "source": "C. Felix (Christian) Klein",
+            "target": "Frank Nelson Cole",
+            "value": 3
+        },
+        {
+            "source": "Gustav  Herglotz",
+            "target": "Emil  Artin",
+            "value": 34
+        },
+        {
+            "source": "Otto Ludwig Hölder",
+            "target": "Emil  Artin",
+            "value": 34
+        },
+        {
+            "source": "H. C. Marston (Harold Calvin) Morse",
+            "target": "Sumner Byron Myers",
+            "value": 8
+        },
+        {
+            "source": "Hassler  Whitney",
+            "target": "Herbert Ellis Robbins",
+            "value": 10
+        },
+        {
+            "source": "Solomon  Lefschetz",
+            "target": "Norman Earl Steenrod",
+            "value": 16
+        },
+        {
+            "source": "Ferdinand Georg Frobenius",
+            "target": "Edmund  Landau",
+            "value": 35
+        },
+        {
+            "source": "Lazarus Immanuel Fuchs",
+            "target": "Edmund  Landau",
+            "value": 35
+        },
+        {
+            "source": "Edmund  Landau",
+            "target": "I.  Paul (Isaak) Bernays",
+            "value": 14
+        },
+        {
+            "source": "Michel  Chasles",
+            "target": "H. A. (Hubert Anson) Newton",
+            "value": 4
+        },
+        {
+            "source": "Alonzo  Church",
+            "target": "Stephen Cole Kleene",
+            "value": 13
+        },
+        {
+            "source": "Oswald  Veblen",
+            "target": "Alonzo  Church",
+            "value": 35
+        },
+        {
+            "source": "Alonzo  Church",
+            "target": "John Barkley Rosser",
+            "value": 9
+        },
+        {
+            "source": "Alonzo  Church",
+            "target": "Hartley  Rogers, Jr.",
+            "value": 19
+        },
+        {
+            "source": "Alonzo  Church",
+            "target": "Dana Stewart Scott",
+            "value": 49
+        },
+        {
+            "source": "Erhard  Schmidt",
+            "target": "Salomon  Bochner",
+            "value": 38
+        },
+        {
+            "source": "Solomon  Lefschetz",
+            "target": "Albert William Tucker",
+            "value": 12
+        },
+        {
+            "source": "Ferdinand Georg Frobenius",
+            "target": "Issai  Schur",
+            "value": 35
+        },
+        {
+            "source": "Lazarus Immanuel Fuchs",
+            "target": "Issai  Schur",
+            "value": 35
+        },
+        {
+            "source": "Szolem  Mandelbrojt",
+            "target": "Hugh Daniel Brunk",
+            "value": 9
+        },
+        {
+            "source": "Karl Theodor Wilhelm Weierstraß",
+            "target": "Heinrich  Bruns",
+            "value": 26
+        },
+        {
+            "source": "Ernst Eduard Kummer",
+            "target": "Heinrich  Bruns",
+            "value": 26
+        },
+        {
+            "source": "Karl Theodor Wilhelm Weierstraß",
+            "target": "Friedrich Hermann Schottky",
+            "value": 11
+        },
+        {
+            "source": "Hermann Ludwig Ferdinand von Helmholtz",
+            "target": "Friedrich Hermann Schottky",
+            "value": 11
+        },
+        {
+            "source": "Frigyes (Frédéric) Riesz",
+            "target": "Tibor  Radó",
+            "value": 21
+        },
+        {
+            "source": "Leopold (Lipót) Fejér",
+            "target": "Tibor  Radó",
+            "value": 21
+        },
+        {
+            "source": "Dimitri Fedorowitsch Egorov",
+            "target": "Nikolai Nikolayevich Luzin",
+            "value": 18
+        },
+        {
+            "source": "Nikolai Nikolayevich Luzin",
+            "target": "Andrei Nikolayevich Kolmogorov",
+            "value": 82
+        },
+        {
+            "source": "Ernst Adolph Guillemin",
+            "target": "William Kirby Linvill",
+            "value": 8
+        },
+        {
+            "source": "Karl Theodor Wilhelm Weierstraß",
+            "target": "Lazarus Immanuel Fuchs",
+            "value": 29
+        },
+        {
+            "source": "Ernst Eduard Kummer",
+            "target": "Lazarus Immanuel Fuchs",
+            "value": 29
+        },
+        {
+            "source": "Max W. Dehn",
+            "target": "Wilhelm  Magnus",
+            "value": 75
+        },
+        {
+            "source": "Stanislaw  Zaremba",
+            "target": "Wacław  Sierpiński",
+            "value": 9
+        },
+        {
+            "source": "Georgy Fedoseevich Voronoy",
+            "target": "Wacław  Sierpiński",
+            "value": 9
+        },
+        {
+            "source": "Gaston  Darboux",
+            "target": "Stanislaw  Zaremba",
+            "value": 9
+        },
+        {
+            "source": "C. Émile (Charles) Picard",
+            "target": "Stanislaw  Zaremba",
+            "value": 9
+        },
+        {
+            "source": "Wacław  Sierpiński",
+            "target": "Stefan  Mazurkiewicz",
+            "value": 8
+        },
+        {
+            "source": "Stefan  Mazurkiewicz",
+            "target": "Karol  Borsuk",
+            "value": 18
+        },
+        {
+            "source": "Jerzy  Neyman",
+            "target": "Erich Leo Lehmann",
+            "value": 42
+        },
+        {
+            "source": "Wacław  Sierpiński",
+            "target": "Jerzy  Neyman",
+            "value": 43
+        },
+        {
+            "source": "Stefan  Mazurkiewicz",
+            "target": "Nachman  Aronszajn",
+            "value": 7
+        },
+        {
+            "source": "Philip  Franklin",
+            "target": "Alan Jay Perlis",
+            "value": 12
+        },
+        {
+            "source": "Harold Meade Mott-Smith",
+            "target": "Richard James Duffin",
+            "value": 14
+        },
+        {
+            "source": "David Gordon Bourgin",
+            "target": "Richard James Duffin",
+            "value": 14
+        },
+        {
+            "source": "Theodore  von Kármán",
+            "target": "C.-C. (Chia-Chiao) Lin",
+            "value": 22
+        },
+        {
+            "source": "Richard  Courant",
+            "target": "Joseph Bishop Keller",
+            "value": 60
+        },
+        {
+            "source": "Leopold (Lipót) Fejér",
+            "target": "George (György) Pólya",
+            "value": 31
+        },
+        {
+            "source": "Ludwig  Prandtl",
+            "target": "Theodore  von Kármán",
+            "value": 38
+        },
+        {
+            "source": "Solomon  Lefschetz",
+            "target": "Ralph Hartzler Fox",
+            "value": 25
+        },
+        {
+            "source": "Stefan  Mazurkiewicz",
+            "target": "Aleksander Michał Rajchman",
+            "value": 2
+        },
+        {
+            "source": "Hugo Dyonizy Steinhaus",
+            "target": "Aleksander Michał Rajchman",
+            "value": 2
+        },
+        {
+            "source": "Heinz  Hopf",
+            "target": "James Johnston Stoker",
+            "value": 37
+        },
+        {
+            "source": "George (György) Pólya",
+            "target": "James Johnston Stoker",
+            "value": 37
+        },
+        {
+            "source": "Erich  Hecke",
+            "target": "Kurt  Reidemeister",
+            "value": 13
+        },
+        {
+            "source": "Erich  Hecke",
+            "target": "Heinrich Adolph Behnke",
+            "value": 28
+        },
+        {
+            "source": "Erich  Hecke",
+            "target": "Wilhelm  Maak",
+            "value": 25
+        },
+        {
+            "source": "Wilhelm Johann Eugen Blaschke",
+            "target": "Wilhelm  Maak",
+            "value": 25
+        },
+        {
+            "source": "Issai  Schur",
+            "target": "Helmut  Wielandt",
+            "value": 22
+        },
+        {
+            "source": "Erhard  Schmidt",
+            "target": "Helmut  Wielandt",
+            "value": 22
+        },
+        {
+            "source": "Arnaud  Denjoy",
+            "target": "Gustave  Choquet",
+            "value": 21
+        },
+        {
+            "source": "Enno Heeren Dirksen",
+            "target": "Carl Gustav Jacob Jacobi",
+            "value": 7
+        },
+        {
+            "source": "Solomon  Lefschetz",
+            "target": "John Wilder Tukey",
+            "value": 57
+        },
+        {
+            "source": "Heinz  Hopf",
+            "target": "Hans  Freudenthal",
+            "value": 26
+        },
+        {
+            "source": "Ludwig  Bieberbach",
+            "target": "Hans  Freudenthal",
+            "value": 26
+        },
+        {
+            "source": "Erhard  Schmidt",
+            "target": "Heinz  Hopf",
+            "value": 50
+        },
+        {
+            "source": "Ludwig  Bieberbach",
+            "target": "Heinz  Hopf",
+            "value": 50
+        },
+        {
+            "source": "Joseph Louis Lagrange",
+            "target": "Siméon Denis Poisson",
+            "value": 5
+        },
+        {
+            "source": "Pierre-Simon  Laplace",
+            "target": "Siméon Denis Poisson",
+            "value": 5
+        },
+        {
+            "source": "Leonhard  Euler",
+            "target": "Joseph Louis Lagrange",
+            "value": 5
+        },
+        {
+            "source": "Siméon Denis Poisson",
+            "target": "Gustav Peter Lejeune Dirichlet",
+            "value": 7
+        },
+        {
+            "source": "Jean-Baptiste Joseph Fourier",
+            "target": "Gustav Peter Lejeune Dirichlet",
+            "value": 7
+        },
+        {
+            "source": "Jacques Salomon Hadamard",
+            "target": "René Maurice Fréchet",
+            "value": 9
+        },
+        {
+            "source": "Issai  Schur",
+            "target": "Bernhard Hermann Neumann",
+            "value": 18
+        },
+        {
+            "source": "Issai  Schur",
+            "target": "Richard  Rado",
+            "value": 4
+        },
+        {
+            "source": "Joseph Louis Lagrange",
+            "target": "Jean-Baptiste Joseph Fourier",
+            "value": 2
+        },
+        {
+            "source": "Abraham Gotthelf Kästner",
+            "target": "Johann Friedrich Pfaff",
+            "value": 5
+        },
+        {
+            "source": "Johann Friedrich Pfaff",
+            "target": "Carl Friedrich Gauß",
+            "value": 11
+        },
+        {
+            "source": "Ernst Eduard Kummer",
+            "target": "Paul  Du Bois-Reymond",
+            "value": 4
+        },
+        {
+            "source": "Heinrich Ferdinand Scherk",
+            "target": "Ernst Eduard Kummer",
+            "value": 56
+        },
+        {
+            "source": "Karl Theodor Wilhelm Weierstraß",
+            "target": "Leo  Königsberger",
+            "value": 41
+        },
+        {
+            "source": "Ernst Eduard Kummer",
+            "target": "Leo  Königsberger",
+            "value": 41
+        },
+        {
+            "source": "Heinz  Hopf",
+            "target": "Beno  Eckmann",
+            "value": 72
+        },
+        {
+            "source": "Ferdinand  Gonseth",
+            "target": "Beno  Eckmann",
+            "value": 72
+        },
+        {
+            "source": "Beno  Eckmann",
+            "target": "Peter Jost Huber",
+            "value": 22
+        },
+        {
+            "source": "Heinz  Hopf",
+            "target": "Peter Jost Huber",
+            "value": 22
+        },
+        {
+            "source": "Issai  Schur",
+            "target": "Kurt August Hirsch",
+            "value": 11
+        },
+        {
+            "source": "Carl Gustav Jacob Jacobi",
+            "target": "Wilhelm  Scheibner",
+            "value": 45
+        },
+        {
+            "source": "Wilhelm  Wirtinger",
+            "target": "Wilhelm Johann Eugen Blaschke",
+            "value": 19
+        },
+        {
+            "source": "Carl Friedrich Gauß",
+            "target": "Friedrich Wilhelm Bessel",
+            "value": 2
+        },
+        {
+            "source": "Emil  Weyr",
+            "target": "Wilhelm  Wirtinger",
+            "value": 10
+        },
+        {
+            "source": "Gustav  Ritter von Escherich",
+            "target": "Wilhelm  Wirtinger",
+            "value": 10
+        },
+        {
+            "source": "Paul  Du Bois-Reymond",
+            "target": "Otto Ludwig Hölder",
+            "value": 58
+        },
+        {
+            "source": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "target": "Emil  Hilb",
+            "value": 4
+        },
+        {
+            "source": "C. Felix (Christian) Klein",
+            "target": "Ludwig  Bieberbach",
+            "value": 34
+        },
+        {
+            "source": "Edmund  Landau",
+            "target": "Werner Johannes Schmeidler",
+            "value": 10
+        },
+        {
+            "source": "Gustav Peter Lejeune Dirichlet",
+            "target": "Rudolf Otto Sigismund Lipschitz",
+            "value": 1
+        },
+        {
+            "source": "Martin  Ohm",
+            "target": "Rudolf Otto Sigismund Lipschitz",
+            "value": 1
+        },
+        {
+            "source": "Marcel  Riesz",
+            "target": "Harald  Cramér",
+            "value": 10
+        },
+        {
+            "source": "Alfred  Klose",
+            "target": "Lothar  Collatz",
+            "value": 52
+        },
+        {
+            "source": "Erhard  Schmidt",
+            "target": "Lothar  Collatz",
+            "value": 52
+        },
+        {
+            "source": "Edmund  Landau",
+            "target": "Adolf  Hammerstein",
+            "value": 9
+        },
+        {
+            "source": "Alexander Friedrich Karl Wilkens",
+            "target": "Alfred  Klose",
+            "value": 13
+        },
+        {
+            "source": "Friedrich Hermann Schottky",
+            "target": "Konrad Hermann Theodor Knopp",
+            "value": 12
+        },
+        {
+            "source": "Ferdinand Georg Frobenius",
+            "target": "Konrad Hermann Theodor Knopp",
+            "value": 12
+        },
+        {
+            "source": "Heinrich Adolph Behnke",
+            "target": "Friedrich  Hirzebruch",
+            "value": 52
+        },
+        {
+            "source": "Heinz  Hopf",
+            "target": "Friedrich  Hirzebruch",
+            "value": 52
+        },
+        {
+            "source": "Constantin  Carathéodory",
+            "target": "Ernst Ferdinand Peschl",
+            "value": 30
+        },
+        {
+            "source": "Oskar  Perron",
+            "target": "Ernst Ferdinand Peschl",
+            "value": 30
+        },
+        {
+            "source": "Robert Johann Maria König",
+            "target": "Karl-Heinrich  Weise",
+            "value": 28
+        },
+        {
+            "source": "Heinz  Hopf",
+            "target": "Eduard L. Stiefel",
+            "value": 63
+        },
+        {
+            "source": "Richard  Courant",
+            "target": "Kurt Otto Friedrichs",
+            "value": 36
+        },
+        {
+            "source": "Arnold Johannes Wilhelm Sommerfeld",
+            "target": "Wolfgang  Pauli",
+            "value": 15
+        },
+        {
+            "source": "Jacques Salomon Hadamard",
+            "target": "Szolem  Mandelbrojt",
+            "value": 15
+        },
+        {
+            "source": "John Henry Constantine Whitehead",
+            "target": "Graham  Higman",
+            "value": 52
+        },
+        {
+            "source": "Marshall Harvey Stone",
+            "target": "George Whitelaw Mackey",
+            "value": 23
+        },
+        {
+            "source": "Karl Theodor Wilhelm Weierstraß",
+            "target": "Nicolai Vasilievich Bugaev",
+            "value": 3
+        },
+        {
+            "source": "Ernst Eduard Kummer",
+            "target": "Nicolai Vasilievich Bugaev",
+            "value": 3
+        },
+        {
+            "source": "Joseph  Liouville",
+            "target": "Nicolai Vasilievich Bugaev",
+            "value": 3
+        },
+        {
+            "source": "Nicolai Vasilievich Bugaev",
+            "target": "Dimitri Fedorowitsch Egorov",
+            "value": 12
+        },
+        {
+            "source": "Dimitri Fedorowitsch Egorov",
+            "target": "Pavel Sergeevich Aleksandrov",
+            "value": 41
+        },
+        {
+            "source": "Nikolai Nikolayevich Luzin",
+            "target": "Pavel Sergeevich Aleksandrov",
+            "value": 41
+        },
+        {
+            "source": "Stefan  Mazurkiewicz",
+            "target": "Kazimierz  Kuratowski",
+            "value": 7
+        },
+        {
+            "source": "René-Louis  Baire",
+            "target": "Arnaud  Denjoy",
+            "value": 8
+        },
+        {
+            "source": "C. Émile (Charles) Picard",
+            "target": "Jacques Salomon Hadamard",
+            "value": 6
+        },
+        {
+            "source": "Jules  Tannery",
+            "target": "Jacques Salomon Hadamard",
+            "value": 6
+        },
+        {
+            "source": "René Maurice Fréchet",
+            "target": "Robert  Fortet",
+            "value": 12
+        },
+        {
+            "source": "Friedrich Wilhelm Bessel",
+            "target": "Heinrich Ferdinand Scherk",
+            "value": 2
+        },
+        {
+            "source": "Heinrich Wilhelm Brandes",
+            "target": "Heinrich Ferdinand Scherk",
+            "value": 2
+        },
+        {
+            "source": "Nikolaus  Hofreiter",
+            "target": "Edmund  Hlawka",
+            "value": 52
+        },
+        {
+            "source": "Siméon Denis Poisson",
+            "target": "Michel  Chasles",
+            "value": 3
+        },
+        {
+            "source": "Carl Gottfried Neumann",
+            "target": "Emil  Weyr",
+            "value": 5
+        },
+        {
+            "source": "Wilhelm  Scheibner",
+            "target": "Emil  Weyr",
+            "value": 5
+        },
+        {
+            "source": "Bernhard Friedrich Thibaut",
+            "target": "Christoph  Gudermann",
+            "value": 2
+        },
+        {
+            "source": "Carl Friedrich Gauß",
+            "target": "Christian Ludwig Gerling",
+            "value": 1
+        },
+        {
+            "source": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "target": "Hermann  Minkowski",
+            "value": 7
+        },
+        {
+            "source": "George (György) Pólya",
+            "target": "Albert  Pfluger",
+            "value": 34
+        },
+        {
+            "source": "Walter  Saxer",
+            "target": "Albert  Pfluger",
+            "value": 34
+        },
+        {
+            "source": "George (György) Pólya",
+            "target": "Walter  Saxer",
+            "value": 56
+        },
+        {
+            "source": "Laurent  Schwartz",
+            "target": "Alexander  Grothendieck",
+            "value": 19
+        },
+        {
+            "source": "Jean Alexandre Eugène Dieudonné",
+            "target": "Alexander  Grothendieck",
+            "value": 19
+        },
+        {
+            "source": "Karl Ferdinand Herzfeld",
+            "target": "John Archibald Wheeler",
+            "value": 18
+        },
+        {
+            "source": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "target": "Arnold Johannes Wilhelm Sommerfeld",
+            "value": 36
+        },
+        {
+            "source": "Jerzy  Neyman",
+            "target": "George Bernard Dantzig",
+            "value": 52
+        },
+        {
+            "source": "Friedrich Julius Richelot",
+            "target": "Carl Gottfried Neumann",
+            "value": 27
+        },
+        {
+            "source": "Otto  Hesse",
+            "target": "Carl Gottfried Neumann",
+            "value": 27
+        },
+        {
+            "source": "Jerzy  Neyman",
+            "target": "Lucien Marie Le Cam",
+            "value": 39
+        },
+        {
+            "source": "Eugène-Charles  Catalan",
+            "target": "Charles  Hermite",
+            "value": 10
+        },
+        {
+            "source": "Richard  Courant",
+            "target": "William  Feller",
+            "value": 22
+        },
+        {
+            "source": "Jacques Salomon Hadamard",
+            "target": "Paul Pierre Lévy",
+            "value": 5
+        },
+        {
+            "source": "Paul Hermann Harzer",
+            "target": "Alexander Friedrich Karl Wilkens",
+            "value": 4
+        },
+        {
+            "source": "Paul  Montel",
+            "target": "Jean Alexandre Eugène Dieudonné",
+            "value": 5
+        },
+        {
+            "source": "Georges  Valiron",
+            "target": "Laurent  Schwartz",
+            "value": 17
+        },
+        {
+            "source": "Michel  Chasles",
+            "target": "Gaston  Darboux",
+            "value": 7
+        },
+        {
+            "source": "Charles  Hermite",
+            "target": "Jules  Tannery",
+            "value": 4
+        },
+        {
+            "source": "Gaston  Darboux",
+            "target": "C. Émile (Charles) Picard",
+            "value": 17
+        },
+        {
+            "source": "Robert Daniel Carmichael",
+            "target": "Harold Meade Mott-Smith",
+            "value": 1
+        },
+        {
+            "source": "Nikolai Nikolayevich Luzin",
+            "target": "Mikhail Alekseevich Lavrentjev",
+            "value": 11
+        },
+        {
+            "source": "Heinrich Franz Friedrich Tietze",
+            "target": "Georg  Aumann",
+            "value": 12
+        },
+        {
+            "source": "Constantin  Carathéodory",
+            "target": "Georg  Aumann",
+            "value": 12
+        },
+        {
+            "source": "Laurent  Schwartz",
+            "target": "Jacques-Louis  Lions",
+            "value": 46
+        },
+        {
+            "source": "Leopold (Lipót) Fejér",
+            "target": "Michael (Mihály) Fekete",
+            "value": 5
+        },
+        {
+            "source": "C. Felix (Christian) Klein",
+            "target": "Edward  Kasner",
+            "value": 10
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Edward  Kasner",
+            "value": 10
+        },
+        {
+            "source": "George Abram Miller",
+            "target": "Henry Lewis Rietz",
+            "value": 14
+        },
+        {
+            "source": "Johann  Bernoulli",
+            "target": "Leonhard  Euler",
+            "value": 6
+        },
+        {
+            "source": "Gaston  Darboux",
+            "target": "Émile  Borel",
+            "value": 7
+        },
+        {
+            "source": "Bernhard Friedrich Thibaut",
+            "target": "Enno Heeren Dirksen",
+            "value": 11
+        },
+        {
+            "source": "Edmund  Landau",
+            "target": "Erich  Kamke",
+            "value": 4
+        },
+        {
+            "source": "Richard  Courant",
+            "target": "Franz  Rellich",
+            "value": 7
+        },
+        {
+            "source": "Edmund  Landau",
+            "target": "Carl Ludwig Siegel",
+            "value": 18
+        },
+        {
+            "source": "Teiji  Takagi",
+            "target": "Shokichi  Iyanaga",
+            "value": 21
+        },
+        {
+            "source": "Gregor  Wentzel",
+            "target": "Nicholas  Kemmer",
+            "value": 5
+        },
+        {
+            "source": "Wolfgang  Pauli",
+            "target": "Nicholas  Kemmer",
+            "value": 5
+        },
+        {
+            "source": "Georg  Rost",
+            "target": "Otto  Haupt",
+            "value": 3
+        },
+        {
+            "source": "Emil  Hilb",
+            "target": "Otto  Haupt",
+            "value": 3
+        },
+        {
+            "source": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "target": "Oskar  Perron",
+            "value": 34
+        },
+        {
+            "source": "Carl Gustav Jacob Jacobi",
+            "target": "Otto  Hesse",
+            "value": 13
+        },
+        {
+            "source": "Friedrich Emil Prym",
+            "target": "Georg  Rost",
+            "value": 18
+        },
+        {
+            "source": "Abraham Gotthelf Kästner",
+            "target": "Karl Christian von Langsdorf",
+            "value": 3
+        },
+        {
+            "source": "Karl Christian von Langsdorf",
+            "target": "Martin  Ohm",
+            "value": 11
+        },
+        {
+            "source": "Franz Carl Josef Mertens",
+            "target": "Tonio  Rella",
+            "value": 3
+        },
+        {
+            "source": "Philipp  Furtwängler",
+            "target": "Tonio  Rella",
+            "value": 3
+        },
+        {
+            "source": "Gerhard Hermann Waldemar Kowalewski",
+            "target": "Alwin Oswald Walther",
+            "value": 24
+        },
+        {
+            "source": "Max Otto Lagally",
+            "target": "Alwin Oswald Walther",
+            "value": 24
+        },
+        {
+            "source": "Paul  Montel",
+            "target": "Henri Paul Cartan",
+            "value": 18
+        },
+        {
+            "source": "Philipp  Furtwängler",
+            "target": "Nikolaus  Hofreiter",
+            "value": 12
+        },
+        {
+            "source": "Carl Christian Bruhns",
+            "target": "Paul Hermann Harzer",
+            "value": 3
+        },
+        {
+            "source": "Wilhelm  Scheibner",
+            "target": "Paul Hermann Harzer",
+            "value": 3
+        },
+        {
+            "source": "August Otto Föppl",
+            "target": "Ludwig  Prandtl",
+            "value": 87
+        },
+        {
+            "source": "Arnold Johannes Wilhelm Sommerfeld",
+            "target": "Werner Karl Heisenberg",
+            "value": 21
+        },
+        {
+            "source": "Ernst Eduard Kummer",
+            "target": "Friedrich Emil Prym",
+            "value": 3
+        },
+        {
+            "source": "Martin  Ohm",
+            "target": "Friedrich Emil Prym",
+            "value": 3
+        },
+        {
+            "source": "Tonio  Rella",
+            "target": "Egon  Ullrich",
+            "value": 15
+        },
+        {
+            "source": "Robert  Daublewsky von Sterneck",
+            "target": "Egon  Ullrich",
+            "value": 15
+        },
+        {
+            "source": "Gustav  Ritter von Escherich",
+            "target": "Robert  Daublewsky von Sterneck",
+            "value": 4
+        },
+        {
+            "source": "Emil  Weyr",
+            "target": "Robert  Daublewsky von Sterneck",
+            "value": 4
+        },
+        {
+            "source": "Pavel Sergeevich Aleksandrov",
+            "target": "Aleksandr Gennadievich Kurosh",
+            "value": 26
+        },
+        {
+            "source": "C. L. Ferdinand (Carl Louis) Lindemann",
+            "target": "Max Otto Lagally",
+            "value": 9
+        },
+        {
+            "source": "Otto Ludwig Hölder",
+            "target": "Felix  Burkhardt",
+            "value": 8
+        },
+        {
+            "source": "Gustav  Herglotz",
+            "target": "Felix  Burkhardt",
+            "value": 8
+        },
+        {
+            "source": "Dimitri Fedorowitsch Egorov",
+            "target": "Ivan Georgievich Petrovsky",
+            "value": 11
+        },
+        {
+            "source": "Siméon Denis Poisson",
+            "target": "Joseph  Liouville",
+            "value": 2
+        },
+        {
+            "source": "Gregor  Wentzel",
+            "target": "Res  Jost",
+            "value": 11
+        },
+        {
+            "source": "Gregor  Wentzel",
+            "target": "Markus E. Fierz",
+            "value": 9
+        },
+        {
+            "source": "David  Hilbert",
+            "target": "Teiji  Takagi",
+            "value": 5
+        },
+        {
+            "source": "Nikolai Nikolayevich Luzin",
+            "target": "Aleksandr Yakovlevich Khinchin",
+            "value": 4
+        },
+        {
+            "source": "Hermann  Minkowski",
+            "target": "Louis  Kollros",
+            "value": 19
+        },
+        {
+            "source": "Louis  Kollros",
+            "target": "Ferdinand  Gonseth",
+            "value": 18
+        },
+        {
+            "source": "Abraham Gotthelf Kästner",
+            "target": "Bernhard Friedrich Thibaut",
+            "value": 3
+        },
+        {
+            "source": "Georg Christoph Lichtenberg",
+            "target": "Bernhard Friedrich Thibaut",
+            "value": 3
+        },
+        {
+            "source": "Carl Gustav Jacob Jacobi",
+            "target": "Friedrich Julius Richelot",
+            "value": 3
+        },
+        {
+            "source": "Georg  Rost",
+            "target": "Richard  Bär",
+            "value": 1
+        },
+        {
+            "source": "Emil  Hilb",
+            "target": "Richard  Bär",
+            "value": 1
+        },
+        {
+            "source": "Émile  Borel",
+            "target": "Paul  Montel",
+            "value": 10
+        },
+        {
+            "source": "Henri Léon Lebesgue",
+            "target": "Paul  Montel",
+            "value": 10
+        },
+        {
+            "source": "Arnold Johannes Wilhelm Sommerfeld",
+            "target": "Ernst Adolph Guillemin",
+            "value": 12
+        },
+        {
+            "source": "Friedrich  Hasenöhrl",
+            "target": "Karl Ferdinand Herzfeld",
+            "value": 1
+        },
+        {
+            "source": "Arnold Johannes Wilhelm Sommerfeld",
+            "target": "Karl Ferdinand Herzfeld",
+            "value": 1
+        },
+        {
+            "source": "Ernst Adolph Guillemin",
+            "target": "Robert Mario Fano",
+            "value": 12
+        },
+        {
+            "source": "Abraham Gotthelf Kästner",
+            "target": "Heinrich Wilhelm Brandes",
+            "value": 1
+        },
+        {
+            "source": "Georg Christoph Lichtenberg",
+            "target": "Heinrich Wilhelm Brandes",
+            "value": 1
+        },
+        {
+            "source": "Abraham Gotthelf Kästner",
+            "target": "Georg Christoph Lichtenberg",
+            "value": 5
+        },
+        {
+            "source": "Richard  Bär",
+            "target": "Hans Wolfgang Liepmann",
+            "value": 56
+        },
+        {
+            "source": "Christian August Hausen",
+            "target": "Abraham Gotthelf Kästner",
+            "value": 11
+        },
+        {
+            "source": "Arnold Johannes Wilhelm Sommerfeld",
+            "target": "Gregor  Wentzel",
+            "value": 12
+        },
+        {
+            "source": "Heinrich  Bruns",
+            "target": "August Otto Föppl",
+            "value": 3
+        },
+        {
+            "source": "C. Felix (Christian) Klein",
+            "target": "August Otto Föppl",
+            "value": 3
+        },
+        {
+            "source": "Émile  Borel",
+            "target": "Georges  Valiron",
+            "value": 7
+        },
+        {
+            "source": "Arnold Johannes Wilhelm Sommerfeld",
+            "target": "Paul Sophus Epstein",
+            "value": 3
+        },
+        {
+            "source": "Szolem  Mandelbrojt",
+            "target": "Jean-Pierre  Kahane",
+            "value": 11
+        },
+        {
+            "source": "Stephen Prokofyevich Timoshenko",
+            "target": "James Norman Goodier",
+            "value": 8
+        },
+        {
+            "source": "Leo  Königsberger",
+            "target": "Edmund  Husserl",
+            "value": 3
+        },
+        {
+            "source": "Émile  Borel",
+            "target": "Henri Léon Lebesgue",
+            "value": 3
+        },
+        {
+            "source": "Leo  Königsberger",
+            "target": "Moritz  Réthy",
+            "value": 1
+        },
+        {
+            "source": "Ludwig  Prandtl",
+            "target": "Stephen Prokofyevich Timoshenko",
+            "value": 39
+        },
+        {
+            "source": "Theodore  von Kármán",
+            "target": "Frank E. Marble",
+            "value": 37
+        },
+        {
+            "source": "Hans Wolfgang Liepmann",
+            "target": "Frank E. Marble",
+            "value": 37
+        },
+        {
+            "source": "Joseph  Liouville",
+            "target": "Eugène-Charles  Catalan",
+            "value": 3
+        },
+        {
+            "source": "C. Émile (Charles) Picard",
+            "target": "René-Louis  Baire",
+            "value": 1
+        },
+        {
+            "source": "Arnold Johannes Wilhelm Sommerfeld",
+            "target": "Erwin Richard Fues",
+            "value": 1
+        }
+    ]
+}
