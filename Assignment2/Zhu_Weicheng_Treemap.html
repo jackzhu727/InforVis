@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<meta charset="utf-8">
+<style>
+
+  body {
+    font: 10px sans-serif;
+    position: relative;
+  }
+
+  .node {
+    box-sizing: border-box;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .node-label {
+    padding: 4px;
+    line-height: 1em;
+    white-space: pre;
+  }
+
+  .node-value {
+    color: rgba(0,0,0,0.8);
+    font-size: 9px;
+    margin-top: 1px;
+  }
+
+</style>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<svg width="960" height="1060"></svg>
+<script>
+  var fun = function () {
+    function treemap(root) {
+        function positionNode(node) {
+            if (node.children) {
+            var x0 = node.x0,
+                y0 = node.y0,
+                x1 = node.x1,
+                y1 = node.y1;
+            var children = node.children;
+            var n = children.length;
+            var sum = 0;
+            var sums = new Array(n + 1);
+            sums[0] = 0;
+            // calculate the cumulative sum of each square;
+            for (var i = 0; i < n; ++i) {
+              sum += children[i].value;
+              sums[i + 1] = sum;
+            }
+            squarifyRatio(0, n, node.value, x0, y0, x1, y1);
+            function squarifyRatio(i, j, value, x0, y0, x1, y1) {
+                var upper = i + 1, lower = j - 1;
+                if (i >= j - 1) {
+                    var child = children[i];
+                    child.x0 = x0, 
+                    child.y0 = y0;
+                    child.x1 = x1, 
+                    child.y1 = y1;
+                    return;
+                }
+
+                
+                var Target = Math.floor(value/2) + sums[i];
+                    
+
+                //Find the pivot of partition
+                while (upper < lower) {
+                    var mid = Math.floor((upper + lower)/2);
+                    if (sums[mid] < Target) {
+                        upper = mid + 1;
+                    }
+                    else {
+                        lower = mid;
+                    }
+                }
+
+                if (Target < (sums[upper - 1] + sums[upper])/2) {
+                  if (i < upper - 1){
+                    upper--;
+                  }
+                }
+
+                //Calculate the sum of left part and the right part
+                var left = sums[upper] - sums[i], right = value - left;
+
+
+                //Squarify the long rectangle to two square-like rectangles 
+                if ((x1 - x0) > (y1 - y0)) {
+                    var new_x = (x0 * right + x1 * left) / value;
+                    squarifyRatio(i, upper, left, x0, y0, new_x, y1);
+                    squarifyRatio(upper, j, right, new_x, y0, x1, y1);
+                } else {
+                    var new_y = (y0 * right + y1 * left) / value;
+                    squarifyRatio(i, upper, left, x0, y0, x1, new_y);
+                    squarifyRatio(upper, j, right, x0, new_y, x1, y1);
+                }
+              }
+          }
+        };
+
+        root.x0 = root.y0 = 0;
+        root.x1 = dx;
+        root.y1 = dy;
+        root.eachBefore(positionNode);
+
+    };
+
+
+      
+    treemap.size = function(x) {
+        return arguments.length ? (dx = +x[0], dy = +x[1], treemap) : [dx, dy];
+    };
+    return treemap;
+  }
+
+      
+
+
+    var width = 960,
+        height = 1060;
+    var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height");
+
+    var format = d3.format(",d");
+
+    var color = d3.scaleOrdinal()
+        .range(d3.schemeCategory10
+            .map(function(c) { c = d3.rgb(c); c.opacity = 0.6; return c; }));
+
+    var treemap = fun()
+        .size([width, height]);
+
+    var stratify = d3.stratify()
+        .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+
+
+    d3.csv("flare.csv", type, function(error, data) {
+        if (error) throw error;
+
+        var root = stratify(data)
+            .sum(function(d) { return d.value; })
+            .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
+
+        treemap(root);
+        //layout(root,width,height);
+
+//        d3.select("body")
+//            .selectAll(".node")
+//            .data(root.leaves())
+//            .enter().append("div")
+//            .attr("class", "node")
+//            .attr("title", function(d) { return d.id + "\n" + format(d.value); })
+//            .style("left", function(d) { return d.x0 + "px"; })
+//            .style("top", function(d) { return d.y0 + "px"; })
+//            .style("width", function(d) { return d.x1 - d.x0 + "px"; })
+//            .style("height", function(d) { return d.y1 - d.y0 + "px"; })
+//            .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.id); })
+//            .append("div")
+//            .attr("class", "node-label")
+//            .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1).split(/(?=[A-Z][^A-Z])/g).join("\n"); })
+//            .append("div")
+//            .attr("class", "node-value")
+//            .text(function(d) { return format(d.value); });
+        var cell = svg.selectAll("g")
+            .data(root.leaves())
+            .enter().append("g")
+            .attr("transform", function(d) { return "translate(" + d.x0 + "," + d.y0 + ")"; });
+
+        cell.append("rect")
+            .attr("id", function(d) { return d.data.id; })
+            .attr("width", function(d) { return d.x1 - d.x0; })
+            .attr("height", function(d) { return d.y1 - d.y0; })
+            .attr("stroke", "#FFFFFF")
+            .attr("fill", function(d) { while (d.depth > 1) d = d.parent; return color(d.id); });
+
+        cell.append("text")
+            .selectAll("tspan")
+            .data(function(d) {
+                var word = (d.id.substring(d.id.lastIndexOf(".") + 1)).split(/(?=[A-Z])/);
+                word[word.length] = format(d.value);
+                return word;})
+            .enter().append("tspan")
+            .attr("x", 4)
+            .attr("y", function(d, i) { return 13 + i * 10; })
+            .text(function(d) { return d; });
+
+        cell.append("title")
+            .text(function(d) { return d.data.id + "\n" + format(d.value); });
+    });
+
+    function type(d) {
+        d.value = +d.value;
+        return d;
+    }
+
+
+</script>
+</body>
+</html>

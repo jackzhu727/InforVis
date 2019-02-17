@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graph</title>
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+
+</head>
+<body>
+<script>
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
+        width = 960 - margin.left - margin.right,
+        height = 1060 - margin.top - margin.bottom;
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+
+    var k = 0.3 * Math.sqrt(960 * 1060 / 76);
+
+    var f_a = function (d) {
+        return d * d / k;
+    };
+
+    var f_r = function (d) {
+        return k * k / (d);
+    };
+
+    d3.json("force.json", function (graph) {
+            var counts = graph.nodes.length;
+            var link = svg.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graph.links)
+                .enter()
+                .append("line")
+                .attr("stroke", '#eee')
+                .attr("stroke-width", function (d) {
+                    return Math.sqrt(d.value);
+                });
+
+            var node = svg.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(graph.nodes)
+                .enter().append("circle")
+                .attr("r", 5)
+                .attr("fill", function (d) {
+                    return color(d.group);
+                });
+
+            var index_graph = function (nodes) {
+                console.log(nodes);
+                var map = {};
+                nodes.forEach(function (node, index) {
+                    map[node.id] = index;
+                });
+                return map;
+            }(graph.nodes);
+
+            var offset=600;
+
+            function ticked() {
+                link
+                    .attr("x1", function (d) { return offset + graph.nodes[index_graph[d.source]].x; })
+                    .attr("y1", function (d) { return offset + graph.nodes[index_graph[d.source]].y; })
+                    .attr("x2", function (d) { return offset + graph.nodes[index_graph[d.target]].x; })
+                    .attr("y2", function (d) { return offset + graph.nodes[index_graph[d.target]].y; });
+
+                node
+                    .attr("cx", function (d) { return offset + d.x; })
+                    .attr("cy", function (d) { return offset + d.y; });
+            }
+
+            function initializeNodes(nodes) {
+                for (var i = 0, n = nodes.length, node; i < n; ++i) {
+                    node = nodes[i];
+                    node.index = i;
+                    var radius = 10 * Math.sqrt(i), angle = i * Math.PI * (3 - Math.sqrt(5));
+                    node.x = radius * Math.cos(angle);
+                    node.y = radius * Math.sin(angle);
+                }
+            }
+
+            function iterate_layout() {
+                for (var i = 0; i < counts; i++) {
+                    graph.nodes[i].displacement_x = 0;
+                    graph.nodes[i].displacement_y = 0;
+                    for (var j = 0; j < counts; j++) {
+                        if (i !== j) {
+                            var d_x = graph.nodes[i].x - graph.nodes[j].x,
+                                d_y = graph.nodes[i].y - graph.nodes[j].y;
+                            var d = Math.sqrt(d_x ** 2 + d_y ** 2);
+                            if (d === 0) {
+                                debugger;
+                                //console.log(d)
+                            }
+                            graph.nodes[i].displacement_x += d_x / d * f_r(d);
+                            graph.nodes[i].displacement_y += d_y / d * f_r(d);
+                        }
+                    }
+                }
+                graph.links.forEach(function (link) {
+                    var s = link.source, t = link.target;
+                    var i = index_graph[s], j = index_graph[t];
+                    var d_x = graph.nodes[i].x - graph.nodes[j].x,
+                        d_y = graph.nodes[i].y - graph.nodes[j].y;
+                    var d = Math.sqrt(d_x ** 2 + d_y ** 2);
+                    graph.nodes[i].displacement_x -= d_x / (d) * f_a(d);
+                    graph.nodes[i].displacement_y -= d_y / (d) * f_a(d);
+                    graph.nodes[j].displacement_x += d_x / (d) * f_a(d);
+                    graph.nodes[j].displacement_y += d_y / (d) * f_a(d);
+                    console.log(graph.nodes[j].displacement_x);
+                });
+
+                graph.nodes.forEach(function (node) {
+                    node.x += 0.01 * node.displacement_x;
+                    node.y += 0.01 * node.displacement_y;
+                })
+            }
+
+            initializeNodes(graph.nodes);
+            ticked(graph.nodes);
+
+            var t = 50000;
+
+            for (var i = 0; i < 2000; i++) {
+                t = t * 0.999;
+                iterate_layout(t);
+                ticked(graph.nodes);
+            }
+
+            // console.log('dones')
+        }
+    );
+
+</script>
+</body>
+</html>

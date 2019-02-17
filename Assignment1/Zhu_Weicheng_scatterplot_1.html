@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<style>
+
+    body {
+        font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+
+</style>
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+    var margin = {top: 20, right: 20, bottom: 35, left: 40},
+        width = 600
+        height = 500 - margin.top - margin.bottom;
+
+    var x = d3.scaleLinear()
+        .range([0, width]);
+
+    var y = d3.scaleLinear()
+        .range([height, 0]);
+
+    var xAxis = d3.axisBottom()
+        .scale(x);
+
+    var yAxis = d3.axisLeft()
+        .scale(y);
+
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    d3.csv("data.csv", function(error, data) {
+        if (error) throw error;
+        data.forEach(function(d) {
+            if(d.Year.substr(-2,2) != '00' && d["GDP per Capita"].toString()!= "" && d["Ease of Business"].toString()!= "" ){
+                d["GDP per Capita"] = parseInt(d["GDP per Capita"].toString().replace("$",'').replace(",",''));
+                d["Ease of Business"] = +d["Ease of Business"];
+            }
+
+        });
+
+        x.domain([0,d3.max(data, function(d) {return parseInt(d["GDP per Capita"]); })]);
+        y.domain([0,d3.max(data, function(d) { return d["Ease of Business"]; })]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+            .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", -6);
+
+        svg.append("text")             
+              .attr("transform",
+                    "translate(" + (width/2) + " ," + 
+                                   (height + 30) + ")")
+              .style("text-anchor", "middle")
+              .text("GDP per Capita");
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("class", "label")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em");
+
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Ease of Business");      
+
+
+
+        svg.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("class", "circle")
+            .attr("r", 5)
+            .attr("cx", function(d) { return x(d["GDP per Capita"]); })
+            .attr("cy", function(d) { return y(d["Ease of Business"]); })
+            .attr('fill','red');
+
+    });
+
+</script>
+</html>
